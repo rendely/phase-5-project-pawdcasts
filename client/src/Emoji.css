@@ -1,0 +1,18 @@
+/* Emoji.css */
+.emoji {
+  position: absolute;
+  bottom: 0;
+  left: 0; /* This will be randomized by JS */
+  font-size: 2rem;
+  animation: moveUpwards 2s linear forwards, fadeOut 2s linear forwards;
+}
+
+@keyframes moveUpwards {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100vh); }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
