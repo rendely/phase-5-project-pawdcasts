@@ -9,8 +9,11 @@ export default function useEmoji() {
       document.body.appendChild(emojiEl);
       const randomLeft = Math.random() * window.innerWidth;
       emojiEl.style.setProperty('left',  `${randomLeft}px`);
-      emojiEl.style.setProperty('bottom',  '0');
+      const randomBottom = 0.5 + Math.random() *0.5 * window.innerHeight;
+      emojiEl.style.setProperty('bottom',  `${randomBottom}px`);
       emojiEl.style.setProperty('position', 'absolute');
+      const randomFont = Math.random() * 4;
+      emojiEl.style.setProperty('font-size', `${randomFont}4em`);
       emojiEl.style.setProperty('z-index', '-3');
       const root = ReactDOM.createRoot(emojiEl);
       root.render(<div className="emoji">🎶</div>);

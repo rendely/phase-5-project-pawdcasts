@@ -2,8 +2,6 @@
 .emoji {
   position: absolute;
   bottom: 0;
-  left: 0; /* This will be randomized by JS */
-  font-size: 2rem;
   animation: moveUpwards 2s linear forwards, fadeOut 2s linear forwards;
 }
 
