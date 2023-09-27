@@ -1,0 +1,66 @@
+# Node (React) specific
+#######################
+# Dependency directories
+node_modules/
+npm-debug.log
+
+# Build output
+/build
+/dist
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE specific
+.vscode/
+.idea/
+
+# macOS system files
+.DS_Store
+
+# Flask and Python specific
+###########################
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Flask instance folder
+instance/
+
+# Flask session files
+flask_session/
+
+# SQLite database file (if you're using SQLite with SQLAlchemy)
+*.db
+*.sqlite
+
+# SQLAlchemy migration folder (if you're using Alembic or Flask-Migrate)
+migrations/
+
+# Virtual environment (venv)
+venv/
+ENV/
+
+# Pytest cache
+.pytest_cache/
+
+# Logs
+logs/
+*.log
+
+# Other tools
+*.swp
+*.swo
+*.swn
+
+# Database seeds or similar sensitive information
+*.seed
