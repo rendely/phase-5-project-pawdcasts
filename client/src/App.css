@@ -8,6 +8,20 @@
 .logo {
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  animation: bounce 1s linear alternate-reverse infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { 
+    transform: translate(0, 0); 
+  }
+  25% { 
+    transform: translate(5px, -10px); 
+  }
+  50% { 
+    transform: translate(5px, 10px); 
+  }
+  75% { 
+    transform: translate(-5px, -10px); 
+  }
 }

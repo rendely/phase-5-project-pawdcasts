@@ -1,17 +1,15 @@
-import pawdLogo from '/pawdcast_logo_large.png'
 import './App.css'
-import useEmoji from './useEmoji';
+import { Routes, Route } from 'react-router-dom'
+import Login from './pages/Login'
+import Search from './pages/Search'
 
 function App() {
-  useEmoji()
 
   return (
-    <>
-      <div>
-        <img src={pawdLogo} className="logo" alt="React logo" />
-      </div>
-      <h1>Pawd🐾casts</h1>
-    </>
+    <Routes>
+      <Route path='/' element={<Login />} />
+      <Route path='/search' element={<Search />} />
+    </Routes>
   )
 }
 
