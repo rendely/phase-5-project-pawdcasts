@@ -1,8 +1,13 @@
 import './PodcastResults.css'
+import { PodcastResultType } from '../types';
 
-export default function PodcastResult() {
+interface PodcastResultProps {
+  podcast: PodcastResultType;
+}
+
+export default function PodcastResult({podcast}: PodcastResultProps) {
 
   return (
-       <div className='podcast-result'>hi</div>
+       <div className='podcast-result'>{podcast.name}</div>
   )
 }

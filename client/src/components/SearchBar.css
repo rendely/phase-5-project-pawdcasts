@@ -4,8 +4,12 @@
 }
 
 .search-bar-input{
-  width: 100%;
-  max-width: 400px;
-  margin: auto;
+  border-radius: 12px;
+  border-style: none;
   box-sizing: border-box; 
+  margin: auto;
+  max-width: 400px;
+  padding: 12px;
+  text-align: center;
+  width: 100%;
 }
