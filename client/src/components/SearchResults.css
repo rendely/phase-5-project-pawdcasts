@@ -1,0 +1,6 @@
+.search-results {
+  background-color: gray;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+}

@@ -1,0 +1,11 @@
+.search-bar{
+  margin: 20px 0 20px 0;  
+  width: 100%;
+}
+
+.search-bar-input{
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  box-sizing: border-box; 
+}
