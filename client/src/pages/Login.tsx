@@ -1,5 +1,5 @@
 import pawdLogo from '/pawdcast_logo_large.png'
-import useEmoji from '../useEmoji';
+import useEmoji from '../components/useEmoji';
 
 export default function Login() {
   useEmoji()

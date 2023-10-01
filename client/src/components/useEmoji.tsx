@@ -11,7 +11,7 @@ export default function useEmoji() {
       emojiEl.style.setProperty('left',  `${randomLeft}px`);
       const randomBottom = 0.5 + Math.random() *0.5 * window.innerHeight;
       emojiEl.style.setProperty('bottom',  `${randomBottom}px`);
-      emojiEl.style.setProperty('position', 'absolute');
+      emojiEl.style.setProperty('position', 'fixed');
       const randomFont = Math.random() * 4;
       emojiEl.style.setProperty('font-size', `${randomFont}4em`);
       emojiEl.style.setProperty('z-index', '-3');

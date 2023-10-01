@@ -1,0 +1,21 @@
+.nav-bar{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: azure;
+}
+
+.nav-link {
+  padding: 10px 10px 10px 10px;
+  
+}
+
+.nav-link.active {
+  padding: 10px 10px 10px 10px;
+  background-color:blueviolet;
+}

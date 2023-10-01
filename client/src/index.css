@@ -19,6 +19,7 @@ body {
   place-items: top;
   min-width: 320px;
   min-height: 100vh;
+  padding-bottom: 20px;
 }
 
 h1 {
