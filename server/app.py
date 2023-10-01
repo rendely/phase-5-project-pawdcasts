@@ -24,13 +24,13 @@ class Search(Resource):
         base_url = 'https://itunes.apple.com/search?media=podcast&limit=10'        
         query = request.args.get('q')
         url = base_url + '&term=' + query
-        with open('testresults.json', 'r') as f:
+        import os
+        print(os.getcwd())
+        with open('server/testresults.json', 'r') as f:
             testjson = f.read()
             data = json.loads(testjson), 200
-        # if data is None:
-        #     r = requests.get(url)
-        #     data = json.loads(r.text), 200
-        # return data
+        # r = requests.get(url)
+        # data = json.loads(r.text), 200
         results = [{"id": r.get('collectionId'), 
                     "name": r.get('collectionName'),
                     "image": r.get('artworkUrl100'),
