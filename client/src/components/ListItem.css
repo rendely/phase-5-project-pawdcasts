@@ -1,4 +1,6 @@
 .list-item {
-  background-color: aqua;
-  margin-bottom: 12px;
+  background-color: rgb(237, 237, 237);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  overflow: hidden;
 }

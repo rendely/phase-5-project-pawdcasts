@@ -1,4 +1,14 @@
+.podcast-result{
+  display: flex;
+  flex-flow: row nowrap;
+}
 
-.podcast-result {
-  color: red;
+.podcast-name {
+  text-align: left;  
+  padding: 12px;
+  color: black;
+}
+
+.podcast-image {
+  height: 100px;
 }

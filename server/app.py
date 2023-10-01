@@ -1,7 +1,8 @@
 import os 
 import requests
 import xml.etree.ElementTree as ET
-from flask import Flask, jsonify
+import json
+from flask import Flask, jsonify, request
 from flask_restful import Resource, Api
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -20,6 +21,24 @@ CORS(app)
 
 class Search(Resource):
     def get(self):
+        base_url = 'https://itunes.apple.com/search?media=podcast&limit=10'        
+        query = request.args.get('q')
+        url = base_url + '&term=' + query
+        with open('testresults.json', 'r') as f:
+            testjson = f.read()
+            data = json.loads(testjson), 200
+        # if data is None:
+        #     r = requests.get(url)
+        #     data = json.loads(r.text), 200
+        # return data
+        results = [{"id": r.get('collectionId'), 
+                    "name": r.get('collectionName'),
+                    "image": r.get('artworkUrl100'),
+                    "itunes_url": r.get('collectionViewUrl')
+                    } 
+                    for r in data[0]['results']]
+        return results, 200
+        # return query, 200
         return [{ 'id': 1, 'name': 'Hiii' }, { 'id': 2, 'name': 'yooo' }], 200
 
 api.add_resource(Search, '/api/search')

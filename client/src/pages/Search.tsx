@@ -10,12 +10,10 @@ export default function Search() {
   const [results, setResults] = useState<PodcastResultType[]>([])
 
   useEffect(() => {
-    fetch('/api/search')
+    fetch('/api/search?q=Sam+Harris')
     .then(r => r.json())
     .then(d => setResults(d))
   },[]);
-
-  console.log(results);
 
   return (
     <>
