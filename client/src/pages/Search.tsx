@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import List from "../components/List";
 import { PodcastResultType } from "../types";
@@ -7,7 +7,15 @@ import ListItem from "../components/ListItem";
 
 export default function Search() {
 
-  const [results, setResults] = useState<PodcastResultType[]>([{ 'id': 1, 'name': 'Hiii' }, { 'id': 2, 'name': 'yooo' }])
+  const [results, setResults] = useState<PodcastResultType[]>([])
+
+  useEffect(() => {
+    fetch('/api/search')
+    .then(r => r.json())
+    .then(d => setResults(d))
+  },[]);
+
+  console.log(results);
 
   return (
     <>

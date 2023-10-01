@@ -3,19 +3,28 @@ import requests
 import xml.etree.ElementTree as ET
 from flask import Flask, jsonify
 from flask_restful import Resource, Api
+from flask_cors import CORS
 from dotenv import load_dotenv
+
 load_dotenv()
 
 app = Flask(__name__)
 
 api = Api(app)
+CORS(app)
 
-@app.route('/')
-def index():
-    DATABASE_URI = os.environ.get('DATABASE_URI')
-    return DATABASE_URI
+# @app.route('/')
+# def index():
+#     DATABASE_URI = os.environ.get('DATABASE_URI')
+#     return DATABASE_URI
 
-class XML(Resource):
+class Search(Resource):
+    def get(self):
+        return [{ 'id': 1, 'name': 'Hiii' }, { 'id': 2, 'name': 'yooo' }], 200
+
+api.add_resource(Search, '/api/search')
+
+class Xml(Resource):
     def get(self):
         r = requests.get('https://wakingup.libsyn.com/rss')
         root = ET.fromstring(r.text)
@@ -32,7 +41,7 @@ class XML(Resource):
 
         return podcasts, 200 
    
-api.add_resource(XML, '/api/xml')
+api.add_resource(Xml, '/api/xml')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
