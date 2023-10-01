@@ -34,7 +34,9 @@ class Search(Resource):
         results = [{"id": r.get('collectionId'), 
                     "name": r.get('collectionName'),
                     "image": r.get('artworkUrl100'),
-                    "itunes_url": r.get('collectionViewUrl')
+                    "itunes_url": r.get('collectionViewUrl'),
+                    "genre": r.get('primaryGenreName'),
+                    "track_count": r.get('trackCount')
                     } 
                     for r in data[0]['results']]
         return results, 200

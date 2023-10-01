@@ -1,14 +1,33 @@
 .podcast-result{
   display: flex;
   flex-flow: row nowrap;
+  color: rgb(83, 83, 83);
+  text-align: left;  
+  align-items: center;
+  justify-content: left;
+  padding-right: 6px;
 }
 
-.podcast-name {
-  text-align: left;  
+.podcast-data{
+  display: flex;
+  flex-flow: column;
   padding: 12px;
+}
+
+.podcast-name a {  
+  flex-grow: 2;
+  text-decoration: none;
   color: black;
+  font-weight: 600;
+  overflow:hidden;
+  
 }
 
 .podcast-image {
   height: 100px;
+}
+
+.podcast-follow {
+  width: 100%;
+  text-align: right;
 }
