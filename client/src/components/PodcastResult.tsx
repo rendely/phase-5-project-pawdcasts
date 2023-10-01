@@ -7,7 +7,17 @@ interface PodcastResultProps {
 
 export default function PodcastResult({ podcast }: PodcastResultProps) {
 
-  console.log(podcast);
+  function handleFollow(){
+    console.log('hiiii');
+    fetch('/api/follow', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({id: podcast.id})
+    })
+    .then(r => r.json())
+    .then(d => console.log(d))
+  }
+
   return (
     <div className='podcast-result'>
       <img className='podcast-image' src={podcast.image} />
@@ -19,7 +29,7 @@ export default function PodcastResult({ podcast }: PodcastResultProps) {
         <div>{podcast.track_count} episodes</div>
         
       </div>
-      <div className='podcast-follow'>Follow</div>
+      <div className='podcast-follow'><button onClick={handleFollow}>Follow</button></div>
     </div>
   
   )

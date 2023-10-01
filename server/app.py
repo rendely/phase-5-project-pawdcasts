@@ -45,6 +45,14 @@ class Search(Resource):
 
 api.add_resource(Search, '/api/search')
 
+class Follow(Resource):
+    def post(self):
+        r = request.json
+        print(r)
+        return {'id': r.get('id')}, 201
+
+api.add_resource(Follow, '/api/follow')
+
 class Xml(Resource):
     def get(self):
         r = requests.get('https://wakingup.libsyn.com/rss')
