@@ -9,10 +9,10 @@ class User(db.Model, SerializerMixin):
   id = db.Column(db.Integer, primary_key = True)
   name = db.Column(db.String, nullable=False)
   email = db.Column(db.String, nullable=False)
-  follows = db.relationship('Follow', back_populates='follows')
+  follows = db.relationship('Follow', back_populates='user')
 
   def __repr__(self):
-    return f'<User {self.email}>'
+    return f'<User {self.name=}, {self.email=}>'
 
 class Follow(db.Model, SerializerMixin):
 
@@ -21,7 +21,7 @@ class Follow(db.Model, SerializerMixin):
 
   id = db.Column(db.Integer, primary_key = True)
   itunes_id = db.Column(db.Integer, nullable=False)
-  user = db.relationship('User', back_populates='user')
+  user = db.relationship('User', back_populates='follows')
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
   def __repr__(self):
