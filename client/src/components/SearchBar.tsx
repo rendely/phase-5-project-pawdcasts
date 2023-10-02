@@ -20,10 +20,10 @@ export default function SearchBar({ setResults }: SearchBarProps) {
   return (
     <div className='search-bar'>
       <h2>Find podcasts</h2>
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearch} action=''>
         <input
           className='search-bar-input'
-          type='text'
+          type='search'
           placeholder='Search'
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)} />

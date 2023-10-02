@@ -9,14 +9,19 @@ export default function Feed() {
       <h2>Latest episodes</h2>
       <List>
         <ListItem>
-          <audio controls>
-            <source src="https://traffic.libsyn.com/secure/wakingup/Making_Sense_335_Covid.mp3?dest-id=480596" type="audio/mpeg" />
-          </audio>
+          <div style={{ display: 'flex', 'flexFlow': 'row', 'justifyContent': 'space-between' }}>
+            <audio controls>
+              <source src="https://traffic.libsyn.com/secure/wakingup/Making_Sense_335_Covid.mp3?dest-id=480596" type="audio/mpeg" />
+            </audio>
+          </div>
         </ListItem>
         <ListItem>
-          <audio controls>
-            <source src="https://anchor.fm/s/4fc82b80/podcast/play/27903967/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-03-04%2Fbddcb1ed632791f3c64c7138c92b3480.m4a" type="audio/mpeg" />
-          </audio>
+        <div style={{ display: 'flex', 'flexFlow': 'row', 'justifyContent': 'space-between' }}>
+          <video controls poster="/pawdcast_logo_large.png" width="300" height="300">
+            <source src="https://traffic.libsyn.com/secure/wakingup/Making_Sense_335_Covid.mp3?dest-id=480596" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </video>
+          </div>
         </ListItem>
       </List>
 

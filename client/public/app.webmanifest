@@ -1,0 +1,11 @@
+{
+  "name": "Pawdcasts",
+  "display": "fullscreen",
+  "start_url": "../",
+  "icons": [
+    {
+      "src": "/pawdcast_square.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }]
+}
