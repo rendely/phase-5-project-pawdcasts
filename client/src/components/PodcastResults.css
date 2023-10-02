@@ -36,9 +36,13 @@
 }
 
 .podcast-follow button{
+  font-size: 14px;
   border-radius: 6px;
-  border-color: purple;
-  border-width: 1px;
+  
+  background-color: gray;
+  color: white;
+  border-style: none;
+  padding: 4px;
 }
 
 .podcast-follow button:hover{

@@ -5,6 +5,8 @@
 }
 
 .search-bar-input{
+  background-color: gray;
+  color: white;
   border-radius: 12px;
   border-style: none;
   box-sizing: border-box; 
