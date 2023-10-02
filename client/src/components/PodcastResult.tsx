@@ -8,7 +8,6 @@ interface PodcastResultProps {
 export default function PodcastResult({ podcast }: PodcastResultProps) {
 
   function handleFollow(){
-    console.log('hiiii');
     fetch('/api/follow', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},

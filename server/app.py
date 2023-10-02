@@ -1,23 +1,16 @@
 import os 
 import requests
 import xml.etree.ElementTree as ET
+from config import app, api
+from flask_restful import Resource
+from flask import jsonify, request
+from models import *
 import json
-from flask import Flask, jsonify, request
-from flask_restful import Resource, Api
-from flask_cors import CORS
-from dotenv import load_dotenv
 
-load_dotenv()
-
-app = Flask(__name__)
-
-api = Api(app)
-CORS(app)
-
-# @app.route('/')
-# def index():
-#     DATABASE_URI = os.environ.get('DATABASE_URI')
-#     return DATABASE_URI
+@app.route('/')
+def index():
+    DATABASE_URI = os.environ.get('DATABASE_URI')
+    return DATABASE_URI
 
 class Search(Resource):
     def get(self):
