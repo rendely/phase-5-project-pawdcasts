@@ -1,15 +1,14 @@
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import Login from './pages/Login'
-import Search from './pages/Search'
-import { Nav } from './components/Nav'
-import Feed from './pages/Feed'
-import { MyPawds } from './pages/MyPawds'
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Search from './pages/Search';
+import { Nav } from './components/Nav';
+import Feed from './pages/Feed';
+import { MyPawds } from './pages/MyPawds';
 
-function App() {
-
+const App = () => {
   return (
-    <div>
+    <>
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/search' element={<Search />} />
@@ -17,8 +16,8 @@ function App() {
         <Route path='/me' element={<MyPawds />} />
       </Routes>
       <Nav />
-    </div>
+    </>
   )
 }
 
-export default App
+export default App;

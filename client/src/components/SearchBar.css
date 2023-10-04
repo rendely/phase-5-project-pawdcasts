@@ -4,6 +4,11 @@
   
 }
 
+::placeholder {
+  color: rgb(209, 209, 209);
+  opacity: 1; /* Firefox */
+}
+
 .search-bar-input{
   background-color: gray;
   color: white;

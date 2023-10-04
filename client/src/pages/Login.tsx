@@ -8,6 +8,7 @@ export default function Login() {
     <>
       <img src={pawdLogo} className="logo" alt="Pawdcasts logo" />
       <h1>Pawd🐾casts</h1>
+      <button>Login</button>
     </>
   )
 }
