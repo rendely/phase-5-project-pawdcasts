@@ -1,11 +1,6 @@
 import './PodcastResults.css'
-import { PodcastResultType } from '../types';
 
-interface PodcastResultProps {
-  podcast: PodcastResultType;
-}
-
-export default function PodcastResult({ podcast }: PodcastResultProps) {
+export default function PodcastResult({ podcast }) {
 
   function handleFollow(){
     fetch('/api/follow', {

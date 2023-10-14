@@ -6,7 +6,7 @@ import { Nav } from './components/Nav';
 import Feed from './pages/Feed';
 import { MyPawds } from './pages/MyPawds';
 
-const App = () => {
+export default function App(){
   return (
     <>
       <Routes>
@@ -19,5 +19,3 @@ const App = () => {
     </>
   )
 }
-
-export default App;

@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import './SearchBar.css';
 
-interface SearchBarProps {
-  setResults: () => void;
-}
 
 
-export default function SearchBar({ setResults }: SearchBarProps) {
-  const [keyword, setKeyword] = useState<string>('');
+export default function SearchBar({ setResults }) {
+  const [keyword, setKeyword] = useState('');
 
 
   function handleSearch(e){
