@@ -1,4 +1,4 @@
-import os
+import requests
 from flask import request
 from flask_restful import Resource
 from config import api
@@ -9,13 +9,13 @@ class Search(Resource):
         base_url = 'https://itunes.apple.com/search?media=podcast&limit=10'        
         query = request.args.get('q')
         url = base_url + '&term=' + query
-        import os
-        print(os.getcwd())
-        with open('server/testresults.json', 'r') as f:
-            testjson = f.read()
-            data = json.loads(testjson), 200
-        # r = requests.get(url)
-        # data = json.loads(r.text), 200
+
+        # with open('server/testresults.json', 'r') as f:
+        #     testjson = f.read()
+        #     data = json.loads(testjson), 200
+        
+        r = requests.get(url)
+        data = json.loads(r.text), 200
         results = [{"id": r.get('collectionId'), 
                     "name": r.get('collectionName'),
                     "image": r.get('artworkUrl100'),
