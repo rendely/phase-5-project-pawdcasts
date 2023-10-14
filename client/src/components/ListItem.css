@@ -3,6 +3,8 @@
   border-radius: 6px;
   margin-bottom: 6px;
   overflow: hidden;
+  color: rgb(83, 83, 83);
+  text-align: left;  
 }
 
 @media (max-width: 40em) {

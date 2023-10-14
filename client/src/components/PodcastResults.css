@@ -1,8 +1,6 @@
 .podcast-result{
   display: flex;
   flex-flow: row nowrap;
-  color: rgb(83, 83, 83);
-  text-align: left;  
   align-items: center;
   justify-content: left;
   padding-right: 12px;
