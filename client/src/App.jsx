@@ -8,7 +8,7 @@ import Feed from './pages/Feed';
 import { MyPawds } from './pages/MyPawds';
 
 export default function App(){
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
   
   useEffect(() => {
     fetch('/api/check_auth')
@@ -17,16 +17,15 @@ export default function App(){
   }, [])
 
 
-  if (!user) return <Login setUser={setUser} />;
   console.log(user);
+  if (!user) return <Login setUser={setUser} />;
 
   return (
     <>
       <Routes>
-        <Route path='/' element={<Feed />} />
         <Route path='/search' element={<Search />} />
-        <Route path='/feed' element={<Feed />} />
         <Route path='/me' element={<MyPawds />} />
+        <Route path='/' element={<Feed />} />
       </Routes>
       <Nav />
     </>

@@ -10,7 +10,7 @@ export default function Login({setUser}) {
   const [errors, setErrors] = useState('');
 
   const formSchema = yup.object().shape({
-    email: yup.string().required("Must enter a email").min(3, "At least 3 characters"),
+    email: yup.string().required("Must enter a email").email("Must be a valid email"),
     password: yup.string().required("Must enter a password").min(3, "At least 3 characters"),
   });
 
@@ -32,7 +32,7 @@ export default function Login({setUser}) {
         setErrors('Invalid login')
         throw new Error('Login failed')
       })
-        .then(d => setUser(d.user_Id))
+        .then(d => setUser(d.user_id))
         .catch((error) => console.log(error));
     },
   });
@@ -41,14 +41,21 @@ export default function Login({setUser}) {
     <>
       <img src={pawdLogo} className="logo" alt="Pawdcasts logo" />
       <h1>Pawd🐾casts</h1>
-      <form>
-        <label>email</label>
+      <form onSubmit={formik.handleSubmit}>
+        
+        <label>Email</label>        
+        <div>
         <input name='email' placeholder='email' onChange={formik.handleChange} value={formik.values.email} />
         <p style={{ color: "red" }}> {formik.errors.email}</p>
+        </div>
+          
         <label>Password</label>
+        <div>
         <input name='password' placeholder='Password' type='password' onChange={formik.handleChange} value={formik.values.password} />
         <p style={{ color: "red" }}> {formik.errors.password}</p>
-        <button onClick={formik.handleSubmit}>Login</button>
+        </div>
+
+        <button type='submit'>Login</button>
       </form>
       <p style={{ color: 'red' }}>{errors}</p>
     </>
