@@ -9,10 +9,13 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     fetch('/api/check_auth')
-      .then(r => r.json())
+      .then(r => {
+        if (r.status === 201) return r.json()
+        throw new Error('Not authorized failed')      
+      })
       .then(d => setUser(d))
+      .catch((error) => console.log(error))
   }, [])
-
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

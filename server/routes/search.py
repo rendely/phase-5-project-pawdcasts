@@ -1,7 +1,8 @@
 import requests
-from flask import request
+from flask import request, session
 from flask_restful import Resource
 from config import api
+from models import User, Podcast
 import json
 
 class Search(Resource):

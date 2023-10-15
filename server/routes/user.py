@@ -21,6 +21,7 @@ class Login(Resource):
         if user and user.authenticate(data.get('password')):
             session['user_id'] = user.id
             return {'user_id': user.id, 'user_name': user.name}, 201
+            
         return {'error': 'Unauthorized'}, 401
 
 api.add_resource(Login, '/api/login')        
