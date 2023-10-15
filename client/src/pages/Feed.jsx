@@ -4,8 +4,8 @@ import { UserContext } from "../UserContext";
 import { useContext } from "react";
 
 export default function Feed() {
-  const user = useContext(UserContext);
-  console.log(user);
+  const context = useContext(UserContext);
+  console.log(context);
 
   return (
     <>

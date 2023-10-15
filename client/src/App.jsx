@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
@@ -6,10 +6,14 @@ import Search from './pages/Search';
 import { Nav } from './components/Nav';
 import Feed from './pages/Feed';
 import { MyPawds } from './pages/MyPawds';
+import { UserContext } from "./UserContext";
+import { useContext } from "react";
 
-export default function App(){
-  const [user, setUser] = useState();
-  
+
+export default function App() {
+
+  const { user, setUser } = useContext(UserContext);
+
   useEffect(() => {
     fetch('/api/check_auth')
       .then(r => r.json())
@@ -18,7 +22,7 @@ export default function App(){
 
 
   console.log(user);
-  if (!user) return <Login setUser={setUser} />;
+  if (!user) return <Login />;
 
   return (
     <>

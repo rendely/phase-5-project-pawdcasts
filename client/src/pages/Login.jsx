@@ -3,9 +3,16 @@ import useEmoji from '../components/useEmoji';
 import { useFormik } from "formik";
 import { useState } from 'react'
 import * as yup from "yup";
+import { UserContext } from "../UserContext";
+import { useContext } from "react";
 
-export default function Login({setUser}) {
+
+
+
+export default function Login() {
   useEmoji()
+
+  const {setUser} = useContext(UserContext);
 
   const [errors, setErrors] = useState('');
 
