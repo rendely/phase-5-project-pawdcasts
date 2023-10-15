@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import { useState } from 'react'
 import * as yup from "yup";
 
-export default function Login() {
+export default function Login({setUser}) {
   useEmoji()
 
   const [errors, setErrors] = useState('');
@@ -32,9 +32,7 @@ export default function Login() {
         setErrors('Invalid login')
         throw new Error('Login failed')
       })
-        .then(d => {
-          if (d.user_id) alert(d.user_id)
-        })
+        .then(d => setUser(d.user_Id))
         .catch((error) => console.log(error));
     },
   });
