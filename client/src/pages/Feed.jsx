@@ -5,8 +5,7 @@ import { useContext } from "react";
 
 export default function Feed() {
   const context = useContext(UserContext);
-  console.log(context);
-
+  
   return (
     <>
       <h2>Latest episodes</h2>

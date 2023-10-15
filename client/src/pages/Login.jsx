@@ -39,7 +39,7 @@ export default function Login() {
         setErrors('Invalid login')
         throw new Error('Login failed')
       })
-        .then(d => setUser(d.user_id))
+        .then(d => setUser(d))
         .catch((error) => console.log(error));
     },
   });

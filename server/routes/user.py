@@ -6,7 +6,9 @@ from models import User
 class CheckAuth(Resource):
     def get(self):
         if session.get('user_id'):
-            return {'user_id': session.get('user_id')}, 201
+            user = User.query.filter_by(id=session['user_id']).first()
+            if user: 
+                return user.to_dict(), 201
 
         return {'error': 'Unauthorized'}, 401
 

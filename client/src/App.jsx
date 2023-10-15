@@ -14,14 +14,6 @@ export default function App() {
 
   const { user, setUser } = useContext(UserContext);
 
-  useEffect(() => {
-    fetch('/api/check_auth')
-      .then(r => r.json())
-      .then(d => setUser(d.user_id))
-  }, [])
-
-
-  console.log(user);
   if (!user) return <Login />;
 
   return (
