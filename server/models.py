@@ -1,6 +1,6 @@
-from config import db
+from config import db, bcrypt
 from sqlalchemy_serializer import SerializerMixin
-
+from sqlalchemy.ext.hybrid import hybrid_property
 
 follows = db.Table(
     'follows',
@@ -18,6 +18,18 @@ class User(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False)
     followed_podcasts = db.relationship('Podcast', secondary=follows)
+    _password_hash = db.Column(db.String)
+
+    @hybrid_property
+    def password_hash(self):
+        raise AttributeError('Password hashes may not be viewed.')
+  
+    @password_hash.setter
+    def password_hash(self, password):
+        self._password_hash =  bcrypt.generate_password_hash(password).decode('utf-8')
+
+    def authenticate(self, password):
+        return bcrypt.check_password_hash(self._password_hash, password)
 
     def __repr__(self):
         return f'<User {self.name=}, {self.email=}, {self.followed_podcasts=}>'

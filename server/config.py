@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_bcrypt import Bcrypt
 from flask_restful import Api
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -30,5 +31,6 @@ metadata = MetaData(naming_convention={
 db = SQLAlchemy(metadata=metadata)
 migrate = Migrate(app, db)
 db.init_app(app)
+bcrypt = Bcrypt(app)
 api = Api(app)
 CORS(app)
