@@ -3,14 +3,11 @@ import requests
 import xml.etree.ElementTree as ET
 from config import app, api
 from flask_restful import Resource
-from flask import jsonify, request
+from flask import jsonify, request, session 
 from models import *
 from routes.search import *
+from routes.user import *
 
-@app.route('/')
-def index():
-    DATABASE_URI = os.environ.get('DATABASE_URI')
-    return DATABASE_URI
 
 class Follow(Resource):
     def post(self):
