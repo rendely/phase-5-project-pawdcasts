@@ -22,7 +22,12 @@ export default function Feed() {
       <List>
         {episodes.map(episode => 
           <ListItem key={episode.title}>
-            {episode.title}
+            <div>
+              {episode.podcast_title}
+            </div>
+            <div>
+              {episode.title}
+              </div>
           <div style={{ display: 'flex', 'flexFlow': 'row', 'justifyContent': 'space-between' }}>
             <audio controls title={episode.title}>
               <source src={episode.mp3} type="audio/mpeg" />
