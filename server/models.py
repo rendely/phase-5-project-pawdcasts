@@ -40,6 +40,7 @@ class Podcast(db.Model, SerializerMixin):
     __tablename__ = 'podcasts'
 
     id = db.Column(db.Integer, primary_key = True)
+    itunes_id = db.Column(db.Integer)
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String)
     feed_url = db.Column(db.String)
