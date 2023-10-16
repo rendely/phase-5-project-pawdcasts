@@ -8,17 +8,21 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    fetch('/api/check_auth')
-      .then(r => {
-        if (r.status === 201) return r.json()
-        throw new Error('Not authorized failed')      
-      })
-      .then(d => setUser(d))
-      .catch((error) => console.log(error))
+    updateUser()
   }, [])
 
+  function updateUser(){
+    fetch('/api/check_auth')
+    .then(r => {
+      if (r.status === 201) return r.json()
+      throw new Error('Not authorized failed')      
+    })
+    .then(d => setUser(d))
+    .catch((error) => console.log(error))
+  }
+
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, updateUser }}>
       {children}
     </UserContext.Provider>
   );
