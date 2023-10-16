@@ -15,8 +15,6 @@ export default function Feed() {
 
   },[]);
 
-  console.log(episodes);
-
   return (
     <>
       <h2>Latest episodes</h2>

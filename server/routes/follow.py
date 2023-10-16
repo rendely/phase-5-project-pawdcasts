@@ -9,7 +9,7 @@ class Follow(Resource):
         r = request.json
         podcast_id = r['id']
         podcast = Podcast.query.filter_by(id=podcast_id).first()
-        if not r['followed']:
+        if r['followed'] is False:
             user.followed_podcasts.append(podcast)
         else:
             user.followed_podcasts.remove(podcast)            

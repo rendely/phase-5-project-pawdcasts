@@ -12,7 +12,6 @@ import { useContext } from "react";
 export default function App() {
 
   const { user, setUser } = useContext(UserContext);
-  console.log(user)
 
   if (!user) return <Login />;
 

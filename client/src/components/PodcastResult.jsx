@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './PodcastResults.css'
 
 export default function PodcastResult({ podcast }) {
-  console.log(podcast);
   const [isFollowed, setIsFollowed] = useState(podcast.followed === undefined ? true : podcast.followed);
 
   function handleFollow(){
