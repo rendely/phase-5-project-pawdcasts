@@ -31,7 +31,6 @@ export default function PodcastResult({ podcast }) {
         {isFollowed ? 'Following' : 'Add' }
         </button>
         </div>
-    </div>
-  
+    </div>  
   )
 } 

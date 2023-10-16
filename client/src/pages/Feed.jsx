@@ -1,30 +1,35 @@
 import List from "../components/List";
 import ListItem from "../components/ListItem";
 import { UserContext } from "../UserContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function Feed() {
   const context = useContext(UserContext);
+  const [episodes, setEpisodes] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/feed')
+    .then(r => r.json())
+    .then(d => setEpisodes(d))
+
+  },[]);
+
+  console.log(episodes);
 
   return (
     <>
       <h2>Latest episodes</h2>
       <List>
-        <ListItem>
+        {episodes.map(episode => 
+          <ListItem key={episode.title}>
+            {episode.title}
           <div style={{ display: 'flex', 'flexFlow': 'row', 'justifyContent': 'space-between' }}>
-            <audio controls title='Testing title'>
-              <source src="https://traffic.libsyn.com/secure/wakingup/Making_Sense_335_Covid.mp3?dest-id=480596" type="audio/mpeg" />
+            <audio controls title={episode.title}>
+              <source src={episode.mp3} type="audio/mpeg" />
             </audio>
           </div>
         </ListItem>
-        <ListItem>
-        <div style={{ display: 'flex', 'flexFlow': 'row', 'justifyContent': 'space-between' }}>
-          <video controls  poster="/pawdcast_logo_large.png" width="244" height="100" playsInline>
-            <source src="https://traffic.libsyn.com/secure/wakingup/Making_Sense_335_Covid.mp3?dest-id=480596" type="audio/mpeg" />
-            Your browser does not support the audio element.
-          </video>
-          </div>
-        </ListItem>
+          )}        
       </List>
 
     </>
