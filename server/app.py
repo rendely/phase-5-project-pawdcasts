@@ -7,20 +7,13 @@ from flask import jsonify, request, session
 from models import *
 from routes.search import *
 from routes.user import *
+from routes.follow import *
 
 @app.before_request
 def check_api_authentication():
     if request.path.startswith('/api') and request.path != '/api/login':
         if 'user_id' not in session:
             return jsonify({'error': 'Unauthorized'}), 401
-
-class Follow(Resource):
-    def post(self):
-        r = request.json
-        print(r)
-        return {'id': r.get('id')}, 201
-
-api.add_resource(Follow, '/api/follow')
 
 class Xml(Resource):
     def get(self):

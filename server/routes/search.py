@@ -26,23 +26,34 @@ class Search(Resource):
                     "track_count": r.get('trackCount')
                     } 
                     for r in data[0]['results']]
-        
-        updated_results = []
-        for p in results:
-            db_podcast = Podcast.query.filter_by(itunes_id = p['itunes_id']).first()
-            if db_podcast:
-                updated_results.append(db_podcast)
-            else:
-                podcast = Podcast(
-                    title=p['title'], 
-                    feed_url=p['feedUrl'],
-                    itunes_id = p['itunes_id'],
-                    image_url = p['image_url'],
-                    )
-                db.session.add(podcast)
-                updated_results.append(podcast)
+                  
+        itunes_ids = [p['itunes_id'] for p in results]
+        existing_podcasts = Podcast.query.filter(Podcast.itunes_id.in_(itunes_ids)).all()
+        podcasts_index = {pod.itunes_id: pod for pod in existing_podcasts}
+
+        followed_podcasts = User.query.filter_by(id=session['user_id']).first().followed_podcasts
+        followed_index = [p.id for p in followed_podcasts]
+
+        new_podcasts = [
+            Podcast(
+                title=p['title'],
+                feed_url=p['feedUrl'],
+                itunes_id=p['itunes_id'],
+                image_url=p['image_url'],
+            )
+            for p in results if p['itunes_id'] not in podcasts_index
+        ]
+
+        db.session.bulk_save_objects(new_podcasts)
         db.session.commit()
-            
-        return [p.to_dict() for p in updated_results], 200
+
+
+        updated_podcasts = existing_podcasts + new_podcasts
+        podcasts_dicts = [p.to_dict() for p in updated_podcasts]
+        
+        for podcast_dict in podcasts_dicts:
+            podcast_dict['followed'] = podcast_dict['id'] in followed_index
+        
+        return podcasts_dicts, 200
     
 api.add_resource(Search, '/api/search')

@@ -1,15 +1,18 @@
+import { useState } from 'react'
 import './PodcastResults.css'
 
 export default function PodcastResult({ podcast }) {
+
+  const [isFollowed, setIsFollowed] = useState(podcast.followed);
 
   function handleFollow(){
     fetch('/api/follow', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({id: podcast.id})
+      body: JSON.stringify({id: podcast.id, followed: isFollowed})
     })
     .then(r => r.json())
-    .then(d => console.log(d))
+    .then(d => {console.log(d); setIsFollowed(curr => !curr);})
   }
 
   return (
@@ -23,7 +26,11 @@ export default function PodcastResult({ podcast }) {
         <div>{podcast.track_count} episodes</div> */}
         
       </div>
-      <div className='podcast-follow'><button onClick={handleFollow}>Follow</button></div>
+      <div className='podcast-follow'>
+        <button onClick={handleFollow}>
+        {isFollowed ? 'Following' : 'Add' }
+        </button>
+        </div>
     </div>
   
   )
