@@ -4,6 +4,8 @@ from flask import request, session
 from flask_restful import Resource
 from config import api, db
 from models import User, Podcast, Episode, follows
+from datetime import datetime 
+
 
 class Feed(Resource):
     def get(self):
@@ -11,6 +13,9 @@ class Feed(Resource):
         episodes = []
         for podcast in followed_podcasts:
             episodes += get_feed_episodes(podcast.feed_url)
+
+        date_format = "%a, %d %b %Y %H:%M:%S %z"
+        episodes.sort(key=lambda x: datetime.strptime(x['date'].replace('GMT', '+0000'), date_format))
         return episodes[0:10], 200
         # return [f.to_dict() for f in followed_podcasts], 200
 
