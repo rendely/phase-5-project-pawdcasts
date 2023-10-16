@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import './Episode.css'
 
 export default function Episode({ episode }) {
+
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <div className='episode-result'>
@@ -10,10 +13,17 @@ export default function Episode({ episode }) {
       <div className='episode-title'>
         {episode.title}
       </div>
-      <div style={{ display: 'flex', 'flexFlow': 'row', 'justifyContent': 'space-between' }}>
-        <audio controls title={episode.title}>
-          <source src={episode.mp3} type="audio/mpeg" />
-        </audio>
+      <div className='episode-audio'>
+        {isPlaying ?
+          <audio controls title={episode.title}>
+            <source src={episode.mp3} type="audio/mpeg" />
+          </audio>
+          :
+          null
+        }
+      </div>
+      <div className='episode-play-toggle'>
+        <button onClick={() => setIsPlaying(curr => !curr)}>{isPlaying ? 'Hide' : 'Play'}</button>
       </div>
     </div>
   )
