@@ -2,8 +2,8 @@ import { useState } from 'react'
 import './PodcastResults.css'
 
 export default function PodcastResult({ podcast }) {
-
-  const [isFollowed, setIsFollowed] = useState(podcast.followed);
+  console.log(podcast);
+  const [isFollowed, setIsFollowed] = useState(podcast.followed === undefined ? true : podcast.followed);
 
   function handleFollow(){
     fetch('/api/follow', {
