@@ -46,11 +46,3 @@
     text-align: center;
     padding: 10px;
 }
-
-.episode-play-toggle button {
-    background-color: gray;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
-}
