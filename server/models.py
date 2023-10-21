@@ -58,6 +58,7 @@ class Episode(db.Model, SerializerMixin):
     serialize_rules=('-podcast.episodes',)
 
     id = db.Column(db.Integer, primary_key = True)
+    guid = db.Column(db.String, unique=True, nullable=False)
     title = db.Column(db.String)
     description = db.Column(db.String)
     duration_seconds = db.Column(db.Integer)
