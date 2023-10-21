@@ -41,12 +41,8 @@ def get_feed_episodes(url, podcast):
             publish_date=parse_date(pubDate),
             description=description,
             podcast_id=podcast.id,
-        )
-            # {'podcast_title': podcast_title, 
-            # 'title': title, 'date': pubDate, 
-            # 'mp3': mp3, 
-            # 'description': description}
-            )
+            source_url=mp3
+        ))
 
     db.session.add_all(episodes)
     db.session.commit()

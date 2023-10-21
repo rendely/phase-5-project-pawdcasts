@@ -25,7 +25,7 @@ export default function Episode({ episode }) {
         <div className='episode-audio'>
           {isPlaying ?
             <audio controls autoPlay title={episode.title}>
-              <source src={episode.mp3} type="audio/mpeg" />
+              <source src={episode.source_url} type="audio/mpeg" />
             </audio>
             :
             null
