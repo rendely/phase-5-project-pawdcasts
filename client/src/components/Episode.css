@@ -1,5 +1,12 @@
 .episode-result{
     padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.episode-left{
+    flex-grow: 3;
 }
 
 .episode-podcast-title{
