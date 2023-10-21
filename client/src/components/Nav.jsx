@@ -13,7 +13,7 @@ export function Nav() {
     <NavLink className='nav-link' to='/'>Feed</NavLink>
     <NavLink className='nav-link' to='/search'>Search</NavLink>
     <NavLink className='nav-link' to='/me'>My Pawds</NavLink>
-    <img src={pawdLogo} className="logo" alt="Pawdcasts logo" />
+    <NavLink to='/login'> <img src={pawdLogo} className="logo" alt="Pawdcasts logo" /></NavLink>
   </div>
   </>)
 }

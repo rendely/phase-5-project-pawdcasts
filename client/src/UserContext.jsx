@@ -21,8 +21,13 @@ export const UserProvider = ({ children }) => {
     .catch((error) => console.log(error))
   }
 
+  function logout(){
+    fetch('/api/logout')
+    .then(setUser(null))
+  }
+
   return (
-    <UserContext.Provider value={{ user, setUser, updateUser }}>
+    <UserContext.Provider value={{ user, setUser, updateUser, logout }}>
       {children}
     </UserContext.Provider>
   );

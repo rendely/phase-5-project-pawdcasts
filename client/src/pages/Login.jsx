@@ -12,7 +12,7 @@ import { useContext } from "react";
 export default function Login() {
   useEmoji()
 
-  const {setUser} = useContext(UserContext);
+  const {user, logout, setUser} = useContext(UserContext);
 
   const [errors, setErrors] = useState('');
 
@@ -48,6 +48,7 @@ export default function Login() {
     <>
       <img src={pawdLogo} className="logo" alt="Pawdcasts logo" />
       <h1>Pawd🐾casts</h1>
+      { user ? (<button onClick={() => logout()}>Logout</button>) : 
       <form onSubmit={formik.handleSubmit}>
         
         <label>Email</label>        
@@ -61,10 +62,10 @@ export default function Login() {
         <input name='password' placeholder='Password' type='password' onChange={formik.handleChange} value={formik.values.password} />
         <p style={{ color: "red" }}> {formik.errors.password}</p>
         </div>
-
         <button type='submit'>Login</button>
+        <p style={{ color: 'red' }}>{errors}</p>
       </form>
-      <p style={{ color: 'red' }}>{errors}</p>
+    }
     </>
   )
 }

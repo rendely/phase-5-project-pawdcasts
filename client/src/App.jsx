@@ -22,6 +22,7 @@ export default function App() {
         <Route path='/search' element={<Search />} />
         <Route path='/me' element={<MyPawds />} />
         <Route path='/podcast/:id' element={<Podcast />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/' element={<Feed />} />
       </Routes>
       <Nav />

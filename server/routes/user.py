@@ -24,4 +24,11 @@ class Login(Resource):
             
         return {'error': 'Unauthorized'}, 401
 
-api.add_resource(Login, '/api/login')        
+api.add_resource(Login, '/api/login')       
+
+class Logout(Resource):
+    def get(self):
+        session['user_id'] = None
+        return {}, 201
+
+api.add_resource(Logout, '/api/logout')               
