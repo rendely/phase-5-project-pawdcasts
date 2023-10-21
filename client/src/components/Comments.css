@@ -1,0 +1,31 @@
+.comments-container{
+    padding: 0 10px;
+}
+
+.comment-row{
+    display: flex;
+    flex-wrap: column;
+    align-items: center;
+    margin: 10px 10px;
+}
+
+.comment-author{
+    padding-right: 10px;
+}
+
+.comment-body{
+    flex-grow: 3;
+    text-align: left;
+}
+
+form {
+    margin-right: 10px;
+}
+
+input {
+    box-sizing: border-box; 
+    width: 100%;
+    border-style: none;
+    border-radius: 12px;
+    padding: 10px;
+}
