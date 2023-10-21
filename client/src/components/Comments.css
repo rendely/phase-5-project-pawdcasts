@@ -1,12 +1,16 @@
 .comments-container{
     padding: 0 10px;
+    text-align: left;
+}
+
+.comment{
+    margin-bottom: 20px;
 }
 
 .comment-row{
     display: flex;
-    flex-wrap: column;
-    align-items: center;
-    margin: 10px 10px;
+    flex-flow: row;
+    align-items: left;
 }
 
 .comment-author{
@@ -14,12 +18,20 @@
 }
 
 .comment-body{
-    flex-grow: 3;
     text-align: left;
+    background-color: lightblue;
+    padding: 10px;
+    border-radius: 12px;
+    width: 100%;
 }
 
+button {
+    flex-basis: 1;
+    box-sizing: border-box; 
+    margin-left: 10px;
+}
 form {
-    margin-right: 10px;
+    width: 100%;
 }
 
 input {

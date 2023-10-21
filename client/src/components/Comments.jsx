@@ -1,7 +1,10 @@
 import './Comments.css'
-import { useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
+import { UserContext } from "../UserContext";
 
 export default function Comments({ episode_id }) {
+
+    const { user } = useContext(UserContext);
 
     const [comments, setComments] = useState([]);
 
@@ -34,25 +37,29 @@ export default function Comments({ episode_id }) {
     return (
         <div className='comments-container'>
             <h3> Comments</h3>
-            <div className='new-comment'>
+            <div className='new-comment comment'>
+                <div className='comment-author'>Comment as {user.name}:</div>
                 <div className='comment-row'>
-
-                    <form className='comment-body'>
+                    <form >
                         <input type='text' />
                     </form>
-                    <button onClick={handleSubmit}>Add</button>
+                    <button onClick={handleSubmit}>Comment</button>
                 </div>
             </div>
             <div className='comment-list'>
                 {comments.map(comment =>
-                    <div key={comment.id} className='comment-row'>
-                        <div className='comment-author'>
-                            {comment.user.name}:
+                    <div key={comment.id} className='comment'>
+                            <div className='comment-author'>
+                                {comment.user.name}:
+                            </div>
+                        <div className='comment-row'>
+                            <div className='comment-body'>
+                                {comment.text}
+                            </div>
+                            {comment.user_id === user.id ?
+                                <button onClick={() => handleDelete(comment.id)}>Delete</button>
+                                : null}
                         </div>
-                        <div className='comment-body'>
-                            {comment.text}
-                        </div>
-                        <button onClick={() => handleDelete(comment.id)}>Delete</button>
                     </div>
                 )}
             </div>
