@@ -1,0 +1,13 @@
+.podcast-image{
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.description{
+    text-align: left;
+    padding: 10px;
+}
+
+.audio{
+    padding-top: 20px;
+}
