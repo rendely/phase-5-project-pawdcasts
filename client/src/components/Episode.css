@@ -1,5 +1,4 @@
 .episode-result{
-    padding: 10px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -9,13 +8,27 @@
     flex-grow: 3;
 }
 
+.episode-podcast-image {
+    padding-right: 10px;
+}
+.episode-podcast-image img{
+    width: 100px;
+    object-fit: contain;
+}
+
 .episode-podcast-title{
     color: darkgray;
     font-size: 0.8em;
 }
+
 .episode-date{
     color: darkgray;
     font-size: 0.8em;
+}
+
+.episode-description{
+    color: rgb(136, 135, 135);
+    font-size: 0.9em;
 }
 
 .episode-audio{

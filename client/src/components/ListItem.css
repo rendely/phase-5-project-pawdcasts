@@ -5,6 +5,7 @@
   overflow: hidden;
   color: rgb(83, 83, 83);
   text-align: left;  
+  padding: 10px;
 }
 
 @media (max-width: 425px) {
