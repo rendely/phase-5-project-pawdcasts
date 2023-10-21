@@ -55,6 +55,7 @@ def get_feed_episodes(url, podcast):
         return episodes + existing_episodes
     except IntegrityError as e: 
         print(e)
+        return []
     
         
 def parse_date(date_string):
