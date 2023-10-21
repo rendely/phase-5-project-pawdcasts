@@ -2,7 +2,7 @@ import List from "../components/List";
 import ListItem from "../components/ListItem";
 import PodcastResult from "../components/PodcastResult"
 import { UserContext } from "../UserContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 
 export function MyPawds() {
 

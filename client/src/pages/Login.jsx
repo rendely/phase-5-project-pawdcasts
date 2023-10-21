@@ -10,7 +10,6 @@ import { useContext } from "react";
 
 
 export default function Login() {
-  useEmoji()
 
   const {user, logout, setUser} = useContext(UserContext);
 
