@@ -4,7 +4,7 @@ import Episode from "../components/Episode";
 import { useEffect, useState } from "react";
 
 export default function Feed() {
-  const [episodes, setEpisodes] = useState([]);
+  const [episodes, setEpisodes] = useState();
 
   useEffect(() => {
     fetch('/api/feed')
@@ -12,6 +12,8 @@ export default function Feed() {
     .then(d => setEpisodes(d))
 
   },[]);
+
+  if (!episodes) return <h2>Loading...</h2>
 
   return (
     <>
