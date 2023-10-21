@@ -15,7 +15,6 @@ class Feed(Resource):
 
         episodes.sort(key=lambda x: x.publish_date, reverse=True)
         return [e.to_dict() for e in episodes[0:10]], 200
-        # return [f.to_dict() for f in followed_podcasts], 200
 
 
 api.add_resource(Feed, '/api/feed')
@@ -34,8 +33,8 @@ def get_feed_episodes(url, podcast):
         download_link_element = item.find('enclosure')
         mp3 = download_link_element.get('url') if download_link_element is not None else ''
         description_element = item.find('.//itunes:subtitle', namespace)
-        description = description_element if description_element else ''
-            
+        description = description_element.text if description_element is not None else ''    
+
         episodes.append(Episode(
             title=title,
             publish_date=parse_date(pubDate),
