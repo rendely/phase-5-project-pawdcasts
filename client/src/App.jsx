@@ -15,6 +15,7 @@ export default function App() {
 
   const { user } = useContext(UserContext);
 
+  if (user=='loading') return <h2> Loading...</h2>
   if (!user) return <Login />;
 
   return (

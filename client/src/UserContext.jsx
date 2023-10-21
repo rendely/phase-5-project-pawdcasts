@@ -5,7 +5,7 @@ export const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
 
-  const [user, setUser] = useState();
+  const [user, setUser] = useState('loading');
 
   useEffect(() => {
     updateUser()
@@ -15,6 +15,7 @@ export const UserProvider = ({ children }) => {
     fetch('/api/check_auth')
     .then(r => {
       if (r.status === 201) return r.json()
+      setUser(null);
       throw new Error('Not authorized failed')      
     })
     .then(d => setUser(d))
