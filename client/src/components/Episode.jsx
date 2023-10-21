@@ -22,7 +22,7 @@ export default function Episode({ episode }) {
         <NavLink to={`/podcast/${episode.podcast.id}`}>{episode.podcast.title}</NavLink>
         </div>
         <div className='episode-title'>
-          {episode.title}
+          <NavLink to={`/episode/${episode.id}`}>{episode.title}</NavLink>
         </div>
         <div className='episode-date'>
           {episode.publish_date}

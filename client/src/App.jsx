@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Search from './pages/Search';
 import Feed from './pages/Feed';
 import Podcast from './pages/Podcast';
+import Episode from './pages/Episode';
 import { Nav } from './components/Nav';
 import { MyPawds } from './pages/MyPawds';
 import { UserContext } from "./UserContext";
@@ -22,6 +23,7 @@ export default function App() {
         <Route path='/search' element={<Search />} />
         <Route path='/me' element={<MyPawds />} />
         <Route path='/podcast/:id' element={<Podcast />} />
+        <Route path='/episode/:id' element={<Episode />} />
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<Feed />} />
       </Routes>

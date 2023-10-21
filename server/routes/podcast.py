@@ -9,7 +9,6 @@ from rss_helper import get_feed_episodes
 
 class PodcastById(Resource):
     def get(self, id):
-        print(id)
         podcast = Podcast.query.filter_by(id=id).first()       
         episodes = get_feed_episodes(podcast.feed_url, podcast)
         episodes.sort(key=lambda x: x.publish_date, reverse=True)
