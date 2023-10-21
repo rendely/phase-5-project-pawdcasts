@@ -4,7 +4,7 @@ import useEmoji from './useEmoji';
 import pawdLogo from '/pawdcast_logo_large.png'
 
 export function Nav() {
-  useEmoji()
+  if (window.innerWidth >= 425) useEmoji();
 
   return (
   <>
