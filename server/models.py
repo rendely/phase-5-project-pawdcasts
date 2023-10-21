@@ -66,7 +66,23 @@ class Episode(db.Model, SerializerMixin):
     publish_date = db.Column(db.Date)
     podcast_id = db.Column(db.Integer, db.ForeignKey('podcasts.id'), nullable=False)
     podcast = db.relationship('Podcast', back_populates='episodes')
+    comments = db.relationship('Comment')
 
     def __repr__(self):
         return f'<Episode {self.title=}>'
+
+class Comment(db.Model, SerializerMixin):
+
+    __tablename__ = 'comments'
+
+    serialize_rules=('-episode.comments', '-user.followed_podcasts')
+
+    id = db.Column(db.Integer, primary_key = True)
+    episode_id = db.Column(db.Integer, db.ForeignKey('episodes.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user = db.relationship('User')
+    text = db.Column(db.String)
+
+    def __repr__(self):
+        return f'<Comment {self.text=}, {self.user_id}>'
 

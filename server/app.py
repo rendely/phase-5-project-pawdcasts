@@ -8,6 +8,7 @@ from routes.follow import *
 from routes.feed import *
 from routes.podcast import *
 from routes.episode import *
+from routes.comment import *
 
 @app.before_request
 def check_api_authentication():

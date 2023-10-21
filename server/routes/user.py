@@ -8,7 +8,7 @@ class CheckAuth(Resource):
         if session.get('user_id'):
             user = User.query.filter_by(id=session['user_id']).first()
             if user: 
-                return user.to_dict(), 201
+                return user.to_dict(), 200
 
         return {'error': 'Unauthorized'}, 401
 
@@ -33,6 +33,6 @@ api.add_resource(Login, '/api/login')
 class Logout(Resource):
     def get(self):
         session['user_id'] = None
-        return {}, 201
+        return {}, 200
 
 api.add_resource(Logout, '/api/logout')               

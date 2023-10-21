@@ -16,7 +16,6 @@ export default function Feed() {
 
     }, []);
 
-    console.log(episode);
     if (!episode) return <h2>Loading...</h2>
 
     return (
@@ -36,7 +35,7 @@ export default function Feed() {
                     <source src={episode.source_url} type="audio/mpeg" />
                 </audio>
             </div>
-            <Comments />
+            <Comments episode_id={episode.id}/>
         </>
     )
 }

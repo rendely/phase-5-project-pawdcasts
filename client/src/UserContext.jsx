@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
   function updateUser(){
     fetch('/api/check_auth')
     .then(r => {
-      if (r.status === 201) return r.json()
+      if (r.status === 200) return r.json()
       setUser(null);
       throw new Error('Not authorized failed')      
     })
