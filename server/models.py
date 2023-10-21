@@ -55,6 +55,8 @@ class Episode(db.Model, SerializerMixin):
 
     __tablename__ = 'episodes'
 
+    serialize_rules=('-podcast.episodes',)
+
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String)
     description = db.Column(db.String)
@@ -63,4 +65,7 @@ class Episode(db.Model, SerializerMixin):
     publish_date = db.Column(db.Date)
     podcast_id = db.Column(db.Integer, db.ForeignKey('podcasts.id'), nullable=False)
     podcast = db.relationship('Podcast', back_populates='episodes')
+
+    def __repr__(self):
+        return f'<Episode {self.title=}>'
 

@@ -4,8 +4,6 @@ import './Episode.css'
 export default function Episode({ episode }) {
 
   const [isPlaying, setIsPlaying] = useState(false);
-  const date = new Date(episode.date);
-  const formattedDate = date.toLocaleString().slice(0, 9);
 
   return (
     <div className='episode-result'>
@@ -13,13 +11,16 @@ export default function Episode({ episode }) {
 
 
         <div className='episode-podcast-title'>
-          {episode.podcast_title}
+          {episode.podcast.title}
         </div>
         <div className='episode-title'>
           {episode.title}
         </div>
         <div className='episode-date'>
-          {formattedDate}
+          {episode.publish_date}
+        </div>
+        <div className='episode-description'>
+          {episode.description}
         </div>
         <div className='episode-audio'>
           {isPlaying ?
