@@ -1,3 +1,7 @@
+.logo{
+  object-fit: contain;
+  width: 50px;
+}
 .nav-bar{
   position: fixed;
   bottom: 0;
@@ -5,7 +9,7 @@
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content:space-evenly;
   align-items: center;
   background-color: azure;
   height: 50px;
@@ -20,4 +24,5 @@
 .nav-link.active {
   padding: 10px 10px 24px 10px;
   background-color:blueviolet;
+  color: white;
 }
