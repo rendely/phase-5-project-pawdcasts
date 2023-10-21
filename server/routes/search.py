@@ -44,7 +44,7 @@ class Search(Resource):
             for p in results if p['itunes_id'] not in podcasts_index
         ]
 
-        db.session.bulk_save_objects(new_podcasts)
+        db.session.add_all(new_podcasts)
         db.session.commit()
 
 
