@@ -17,8 +17,12 @@ def run_seed():
 
         print("Adding a user...")
 
-        user = User(name='matt', email='matt@matt.com')
+        user = User(name='Matt', email='matt@matt.com')
         user.password_hash = 'matt'
+        db.session.add(user)
+
+        user = User(name='Tom', email='tom@tom.com')
+        user.password_hash = 'tom'
         db.session.add(user)
         db.session.commit()
 
