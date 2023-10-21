@@ -9,10 +9,16 @@
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content:space-evenly;
+  justify-content:center;
   align-items: center;
   background-color: azure;
   height: 50px;
+}
+
+@media (max-width: 425px) {
+  .nav-bar {
+    justify-content: space-around;
+  }
 }
 
 .nav-link {
