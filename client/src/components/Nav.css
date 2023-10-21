@@ -1,3 +1,7 @@
+.spacer{
+  height: 50px;
+}
+
 .logo{
   object-fit: contain;
   width: 50px;
