@@ -6,6 +6,7 @@ from routes.search import *
 from routes.user import *
 from routes.follow import *
 from routes.feed import *
+from routes.podcast import *
 
 @app.before_request
 def check_api_authentication():

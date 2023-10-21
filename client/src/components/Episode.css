@@ -16,9 +16,10 @@
     object-fit: contain;
 }
 
-.episode-podcast-title{
+.episode-podcast-title a{
     color: darkgray;
     font-size: 0.8em;
+    text-decoration: none;
 }
 
 .episode-date{

@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useState, useRef} from 'react';
+import {NavLink} from 'react-router-dom';
 import './Episode.css'
 
 export default function Episode({ episode }) {
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const audio = useRef();
+  
+  // console.log(audio.current.currentTime);
 
   return (
     <div>
@@ -15,7 +19,7 @@ export default function Episode({ episode }) {
 
 
         <div className='episode-podcast-title'>
-          {episode.podcast.title}
+        <NavLink to={`/podcast/${episode.podcast.id}`}>{episode.podcast.title}</NavLink>
         </div>
         <div className='episode-title'>
           {episode.title}
@@ -35,7 +39,7 @@ export default function Episode({ episode }) {
   </div>
   <div className='episode-audio'>
     {isPlaying ?
-      <audio controls autoPlay title={episode.title}>
+      <audio ref={audio} controls autoPlay title={episode.title}>
         <source src={episode.source_url} type="audio/mpeg" />
       </audio>
       :
