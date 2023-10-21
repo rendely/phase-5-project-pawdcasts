@@ -18,6 +18,7 @@ export default function SearchBar({ setResults }) {
       <h2>Find podcasts</h2>
       <form onSubmit={handleSearch} action=''>
         <input
+          autoFocus
           className='search-bar-input'
           type='search'
           placeholder='Search'
