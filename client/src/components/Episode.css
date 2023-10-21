@@ -1,43 +1,51 @@
-.episode-result{
+.episode-result {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
 }
 
-.episode-left{
+.episode-left {
     flex-grow: 3;
 }
 
 .episode-podcast-image {
     padding-right: 10px;
-}
-.episode-podcast-image img{
-    width: 100px;
-    object-fit: contain;
+    
 }
 
-.episode-podcast-title a{
+.episode-podcast-image img {
+    width: 100px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.episode-podcast-title a {
     color: darkgray;
     font-size: 0.8em;
     text-decoration: none;
+
 }
 
-.episode-date{
+.episode-title {
+    padding-right: 5px;
+}
+
+.episode-date {
     color: darkgray;
     font-size: 0.8em;
 }
 
-.episode-description{
+.episode-description {
     color: rgb(136, 135, 135);
     font-size: 0.9em;
 }
 
-.episode-audio{
+.episode-audio {
     text-align: center;
     padding: 10px;
 }
 
-.episode-play-toggle button{
+.episode-play-toggle button {
     background-color: gray;
     color: white;
     border: none;

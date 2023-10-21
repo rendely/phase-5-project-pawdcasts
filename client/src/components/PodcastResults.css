@@ -27,6 +27,7 @@
 
 .podcast-image {
   height: 100px;
+  border-radius: 5px;
 }
 
 .podcast-follow {
