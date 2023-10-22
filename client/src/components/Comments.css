@@ -1,5 +1,4 @@
 .comments-container{
-    padding: 0 10px;
     text-align: left;
 }
 
@@ -14,7 +13,7 @@
 }
 
 .comment-author{
-    padding-right: 10px;
+    font-weight: 600;
 }
 
 .comment-body{
@@ -40,5 +39,7 @@ input {
     border-style: none;
     border-radius: 12px;
     padding: 10px;
+    background-color: rgb(200, 220, 234);
+    color: rgb(55, 55, 55);
     
 }

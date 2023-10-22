@@ -19,7 +19,7 @@ export default function Feed() {
     if (!episode) return <h2>Loading...</h2>
 
     return (
-        <>
+        <div className='episode-container'>
             <img className="podcast-image" width="100" src={episode.podcast.image_url} />
             <h3>
                 {episode.podcast.title}
@@ -36,6 +36,6 @@ export default function Feed() {
                 </audio>
             </div>
             <Comments episode_id={episode.id}/>
-        </>
+        </div>
     )
 }

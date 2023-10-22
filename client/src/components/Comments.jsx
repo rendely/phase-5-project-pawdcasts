@@ -54,7 +54,7 @@ export default function Comments({ episode_id }) {
                 {comments.map(comment =>
                     <div key={comment.id} className='comment'>
                         <div className='comment-author'>
-                            {comment.user.name}:
+                            {comment.user.name}
                         </div>
                         <div className='comment-row'>
                             <div className='comment-body'>
