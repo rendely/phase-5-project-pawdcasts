@@ -17,6 +17,7 @@
   align-items: center;
   background-color: azure;
   height: 50px;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 @media (max-width: 425px) {
@@ -28,11 +29,13 @@
 .nav-link {
   
   padding: 10px 10px 24px 10px;
-  
+  text-decoration: none;
 }
 
 .nav-link.active {
   padding: 10px 10px 24px 10px;
   background-color:blueviolet;
   color: white;
+  height: 100%;
+  border-radius: 12px;
 }
