@@ -65,4 +65,4 @@ logs/
 # Database seeds or similar sensitive information
 *.seed
 
-test.*
+test*
