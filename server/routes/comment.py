@@ -6,7 +6,7 @@ from models import Comment, Episode, Podcast
 class CommentByEpisodeId(Resource):
     # get all comments for an episode 
     def get(self, id):
-        comments = Comment.query.filter_by(episode_id = id).all()
+        comments = Comment.query.filter_by(episode_id = id).order_by(Comment.id.desc()).all()
         return [comment.to_dict() for comment in comments], 200
 
     # add a comment to an episode

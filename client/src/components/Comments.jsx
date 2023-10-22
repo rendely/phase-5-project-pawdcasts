@@ -24,7 +24,7 @@ export default function Comments({ episode_id }) {
             body: JSON.stringify({ text: text })
         })
             .then(r => r.json())
-            .then(d => setComments(curr => [...curr, d]))
+            .then(d => setComments(curr => [d,...curr]))
             .then(() => setText(''))
     }
 
