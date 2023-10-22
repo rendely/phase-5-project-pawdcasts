@@ -26,7 +26,11 @@ api.add_resource(CommentByEpisodeId, '/api/comment/episode/<int:id>')
 class CommentById(Resource):
     # update comment
     def patch(self, id):
-        pass
+        text = request.json['text']
+        comment = Comment.query.filter_by(id=id).first()
+        comment.text = text
+        db.session.commit()
+        return {}, 204
 
     # delete comment
     def delete(self, id):
