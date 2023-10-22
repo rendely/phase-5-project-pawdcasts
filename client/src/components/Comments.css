@@ -19,6 +19,7 @@
 .comment-body{
     text-align: left;
     background-color: lightblue;
+    color: rgb(55, 55, 55);
     padding: 10px;
     border-radius: 12px;
     width: 100%;
