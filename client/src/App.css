@@ -14,11 +14,10 @@ audio {
 button{
   font-size: 14px;
   border-radius: 6px;
-  
   background-color: gray;
   color: white;
   border-style: none;
-  padding: 4px;
+  padding: 4px 12px;
 }
 
 button:hover{
