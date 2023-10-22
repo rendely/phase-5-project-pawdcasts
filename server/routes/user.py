@@ -21,8 +21,8 @@ class Login(Resource):
         if user and user.authenticate(data.get('password')):
             session['user_id'] = user.id
             return {
-                'user_id': user.id, 
-                'user_name': user.name, 
+                'id': user.id, 
+                'name': user.name, 
                 'followed_podcasts': [fp.to_dict() for fp in user.followed_podcasts],
                 }, 201
             
