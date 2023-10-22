@@ -12,5 +12,11 @@ class EpisodeById(Resource):
         episode = Episode.query.filter_by(id=id).first()    
         print(episode)          
         return episode.to_dict(), 200
+    
+    def patch(self, id):
+        episode = Episode.query.filter_by(id=id).first()  
+        episode.current_time = request.json['current_time']
+        db.session.commit()
+        return {}, 200
 
 api.add_resource(EpisodeById, '/api/episode/<int:id>')

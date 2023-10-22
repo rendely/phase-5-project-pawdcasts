@@ -61,7 +61,7 @@ class Episode(db.Model, SerializerMixin):
     guid = db.Column(db.String, unique=True, nullable=False)
     title = db.Column(db.String)
     description = db.Column(db.String)
-    duration_seconds = db.Column(db.Integer)
+    current_time = db.Column(db.Integer)
     source_url = db.Column(db.String)
     publish_date = db.Column(db.Date)
     podcast_id = db.Column(db.Integer, db.ForeignKey('podcasts.id'), nullable=False)
