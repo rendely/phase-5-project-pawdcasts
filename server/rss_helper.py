@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 import requests 
-from models import Episode
-from config import db
+from .models import Episode
+from .config import db
 from sqlalchemy.exc import IntegrityError
 from datetime import datetime 
 

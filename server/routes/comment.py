@@ -1,7 +1,7 @@
 from flask import session, request
 from flask_restful import Resource
-from config import api, db
-from models import Comment, Episode, Podcast 
+from ..config import api, db
+from ..models import Comment, Episode, Podcast 
 
 class CommentByEpisodeId(Resource):
     # get all comments for an episode 

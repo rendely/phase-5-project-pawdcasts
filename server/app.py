@@ -1,14 +1,14 @@
 import os 
-from config import app
+from .config import app
 from flask import jsonify, request, session, render_template 
 
-from routes.search import *
-from routes.user import *
-from routes.follow import *
-from routes.feed import *
-from routes.podcast import *
-from routes.episode import *
-from routes.comment import *
+from .routes.search import *
+from .routes.user import *
+from .routes.follow import *
+from .routes.feed import *
+from .routes.podcast import *
+from .routes.episode import *
+from .routes.comment import *
 
 @app.before_request
 def check_api_authentication():

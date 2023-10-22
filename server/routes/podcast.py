@@ -2,10 +2,10 @@ import requests
 from sqlalchemy.exc import IntegrityError
 from flask import request, session
 from flask_restful import Resource
-from config import api, db
-from models import User, Podcast, Episode, follows
+from ..config import api, db
+from ..models import User, Podcast, Episode, follows
 from datetime import datetime 
-from rss_helper import get_feed_episodes
+from ..rss_helper import get_feed_episodes
 
 class PodcastById(Resource):
     def get(self, id):
