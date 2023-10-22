@@ -60,8 +60,7 @@ class Episode(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key = True)
     guid = db.Column(db.String, unique=True, nullable=False)
     title = db.Column(db.String)
-    description = db.Column(db.String)
-    current_time = db.Column(db.Integer)
+    description = db.Column(db.String)    
     source_url = db.Column(db.String)
     publish_date = db.Column(db.Date)
     podcast_id = db.Column(db.Integer, db.ForeignKey('podcasts.id'), nullable=False)
@@ -84,5 +83,17 @@ class Comment(db.Model, SerializerMixin):
     text = db.Column(db.String)
 
     def __repr__(self):
-        return f'<Comment {self.text=}, {self.user_id}>'
+        return f'<Comment {self.text=}, {self.user_id=}>'
+
+class History(db.Model, SerializerMixin):
+
+    __tablename__ = 'history'
+
+    id = db.Column(db.Integer, primary_key = True)
+    episode_id = db.Column(db.Integer, db.ForeignKey('episodes.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    current_time = db.Column(db.Integer)
+
+    def __repr__(self):
+        return f'<History {self.user_id=}, {self.current_time=}>'        
 

@@ -12,7 +12,6 @@ export default function Episode() {
     function saveCurrentTime(){
         if (audio.current) {
             const currentTime = Math.round(audio.current.currentTime);
-            console.log('Saving time...', currentTime);
             fetch (`/api/episode/${params['id']}`, {
                 method: 'PATCH',
                 headers: {'Content-type': 'application/json'},
