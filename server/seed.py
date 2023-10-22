@@ -1,7 +1,7 @@
 import datetime
 
-from app import app, db
-from models import *
+from .app import app, db
+from .models import *
 
 def run_seed():
     with app.app_context():
