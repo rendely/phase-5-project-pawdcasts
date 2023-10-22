@@ -5,7 +5,8 @@
       "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
     },
     "engines": {
-      "node": "20.5.0"
+      "node": "20.5.0",
+      "npm": "9.8.0"
     }
   }
   
