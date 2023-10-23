@@ -1,6 +1,6 @@
 {
   "name": "Pawdcasts",
-  "display": "fullscreen",
+  "display": "standalone",
   "start_url": "../",
   "icons": [
     {
