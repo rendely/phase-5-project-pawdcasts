@@ -10,7 +10,8 @@ class Feed(Resource):
         followed_podcasts = User.query.filter_by(id=session['user_id']).first().followed_podcasts
         episodes = []
         for podcast in followed_podcasts:
-            episodes += get_feed_episodes(podcast.feed_url, podcast)
+            if podcast.feed_url is not None:
+                episodes += get_feed_episodes(podcast.feed_url, podcast)
 
         episodes.sort(key=lambda x: x.publish_date, reverse=True)
         return [e.to_dict() for e in episodes[0:10]], 200

@@ -33,3 +33,7 @@
 .podcast-follow {
   text-align: right;
 }
+
+.error {
+  color: red;
+}

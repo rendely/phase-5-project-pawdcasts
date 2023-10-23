@@ -9,8 +9,10 @@ from ..rss_helper import get_feed_episodes
 
 class PodcastById(Resource):
     def get(self, id):
-        podcast = Podcast.query.filter_by(id=id).first()       
-        episodes = get_feed_episodes(podcast.feed_url, podcast)
+        podcast = Podcast.query.filter_by(id=id).first()   
+        if podcast.feed_url is None:
+            return {"error": "No feed url"}, 500
+        episodes = get_feed_episodes(podcast.feed_url, podcast)        
         episodes.sort(key=lambda x: x.publish_date, reverse=True)
         episodes_dicts = [e.to_dict() for e in episodes[0:30]]
         return {'podcast': podcast.to_dict(), 'episodes': episodes_dicts}, 200

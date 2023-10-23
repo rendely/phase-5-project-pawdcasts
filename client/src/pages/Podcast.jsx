@@ -11,11 +11,17 @@ export default function Feed() {
 
   useEffect(() => {
     fetch(`/api/podcast/${params['id']}`)
-    .then(r => r.json())
+    .then(r => {
+      if (r.response === 200) return r.json()
+      throw new Error('No podcast feed')
+    })
     .then(d => {
         setEpisodes(d['episodes']);
         setPodcast(d['podcast']);
     })
+    .catch((error) =>{
+      setPodcast({title: error.message});
+     } )
 
   },[]);
 
