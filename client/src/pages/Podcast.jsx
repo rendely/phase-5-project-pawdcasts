@@ -12,7 +12,7 @@ export default function Feed() {
   useEffect(() => {
     fetch(`/api/podcast/${params['id']}`)
     .then(r => {
-      if (r.response === 200) return r.json()
+      if (r.status === 200) return r.json()
       throw new Error('No podcast feed')
     })
     .then(d => {
