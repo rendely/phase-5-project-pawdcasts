@@ -17,7 +17,7 @@
   align-items: center;
   background-color: azure;
   height: 50px;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom, 20px);
 }
 
 @media (max-width: 425px) {
