@@ -1,6 +1,9 @@
 from .config import db, bcrypt
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.hybrid import hybrid_property
+from sqlalchemy.orm import validates
+import re 
+EMAIL_REGEX = '.+\@.+\..+'
 
 follows = db.Table(
     'follows',
@@ -31,6 +34,12 @@ class User(db.Model, SerializerMixin):
 
     def authenticate(self, password):
         return bcrypt.check_password_hash(self._password_hash, password)
+
+    @validates('email')
+    def validate_email(self, key, address):
+        if not re.search(EMAIL_REGEX, address):
+            raise ValueError("Failed simple email validation")
+        return address
 
     def __repr__(self):
         return f'<User {self.name=}, {self.email=}, {self.followed_podcasts=}>'
@@ -93,6 +102,12 @@ class History(db.Model, SerializerMixin):
     episode_id = db.Column(db.Integer, db.ForeignKey('episodes.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     current_time = db.Column(db.Integer)
+
+    @validates('current_time')
+    def validate_time(self, key, time):
+        if time < 0:
+            raise ValueError("Current time must be >= 0")
+        return time
 
     def __repr__(self):
         return f'<History {self.user_id=}, {self.current_time=}>'        
