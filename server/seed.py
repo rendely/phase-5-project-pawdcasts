@@ -8,9 +8,11 @@ def run_seed():
         print("Starting seed...")
 
         db.session.query(follows).delete()
-        User.query.delete()
-        Podcast.query.delete()
+        Comment.query.delete()
+        History.query.delete()
         Episode.query.delete()
+        Podcast.query.delete()
+        User.query.delete()
         db.session.commit()
 
         print("Finished deletions...")
