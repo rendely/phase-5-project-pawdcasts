@@ -20,11 +20,7 @@ class Login(Resource):
         user = User.query.filter_by(email = data.get('email')).first()
         if user and user.authenticate(data.get('password')):
             session['user_id'] = user.id
-            return {
-                'id': user.id, 
-                'name': user.name, 
-                'followed_podcasts': [fp.to_dict() for fp in user.followed_podcasts],
-                }, 201
+            return user.to_dict(), 201
             
         return {'error': 'Unauthorized'}, 401
 
