@@ -3,8 +3,9 @@ import ListItem from "../components/ListItem";
 import Episode from "../components/Episode";
 import { useEffect, useState } from "react";
 import {useParams} from "react-router-dom";
+import FollowButton from "../components/FollowButton";
 
-export default function Feed() {
+export default function Podcast() {
   const params = useParams();
   const [podcast, setPodcast] = useState({title: 'Loading...'});
   const [episodes, setEpisodes] = useState([]);
@@ -28,6 +29,9 @@ export default function Feed() {
   return (
     <>
       <h2>{podcast['title']}</h2>
+      <div>
+        <FollowButton followed={podcast.followed} id={podcast.id}/>
+      </div>
       <List>
         {episodes.map(episode => 
           <ListItem key={episode.title}>
