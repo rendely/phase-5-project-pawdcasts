@@ -1,15 +1,21 @@
 import List from "../components/List";
 import ListItem from "../components/ListItem";
 import Episode from "../components/Episode";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {useParams} from "react-router-dom";
 import FollowButton from "../components/FollowButton";
+import { UserContext } from "../UserContext";
 
 export default function Podcast() {
   const params = useParams();
   const [podcast, setPodcast] = useState({title: 'Loading...'});
   const [episodes, setEpisodes] = useState([]);
+  const {user, updateUser} = useContext(UserContext);
 
+  const followedPodcasts = user.followed_podcasts;
+  const followedPodcastsIds = followedPodcasts.map(p => p.id);
+  const isFollowed = followedPodcastsIds.indexOf(parseInt(params['id'])) >= 0;
+  
   useEffect(() => {
     fetch(`/api/podcast/${params['id']}`)
     .then(r => {
@@ -30,7 +36,7 @@ export default function Podcast() {
     <>
       <h2>{podcast['title']}</h2>
       <div>
-        <FollowButton followed={podcast.followed} id={podcast.id}/>
+        <FollowButton followed={isFollowed} id={podcast.id}/>
       </div>
       <List>
         {episodes.map(episode => 
