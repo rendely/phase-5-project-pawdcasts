@@ -16,7 +16,7 @@ class Search(Resource):
         #     data = json.loads(testjson), 200
         
         r = requests.get(url)
-        data = json.loads(r.text), 200
+        data = json.loads(r.text)
         results = [{"itunes_id": r.get('collectionId'), 
                     "title": r.get('collectionName'),
                     "image_url": r.get('artworkUrl600'),

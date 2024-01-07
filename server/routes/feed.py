@@ -14,7 +14,7 @@ class Feed(Resource):
                 episodes += get_feed_episodes(podcast.feed_url, podcast)
 
         episodes.sort(key=lambda x: x.publish_date, reverse=True)
-        return [e.to_dict() for e in episodes[0:10]], 200
+        return [e.to_dict() for e in episodes[0:30]], 200
 
 
 api.add_resource(Feed, '/api/feed')
