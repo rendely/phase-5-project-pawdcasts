@@ -25,7 +25,7 @@ class Search(Resource):
                     "genre": r.get('primaryGenreName'),
                     "track_count": r.get('trackCount')
                     } 
-                    for r in data[0]['results']]        
+                    for r in data['results']]        
         itunes_ids = [p['itunes_id'] for p in results]
         existing_podcasts = Podcast.query.filter(Podcast.itunes_id.in_(itunes_ids)).all()
         podcasts_index = {pod.itunes_id: pod for pod in existing_podcasts}
