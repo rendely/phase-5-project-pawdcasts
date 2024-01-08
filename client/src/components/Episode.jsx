@@ -7,8 +7,6 @@ export default function Episode({ episode }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audio = useRef();
 
-  // console.log(audio.current.currentTime);
-
   return (
     <div>
       <div className='episode-result'>
