@@ -3,7 +3,8 @@
 Web app for finding, following, discovering and listening to Podcasts.
 
 Search across millions of podcasts with Apple Podcast API integration:
-![Search](screenshots/search.jpg)
+
+<img src="screenshots/search.jpg" width="200">
 
 Track your favorite podcasts by following them:
 ![Search](screenshots/mypawds.jpg)
