@@ -19,6 +19,7 @@ class Login(Resource):
         data = request.get_json()
         user = User.query.filter_by(email = data.get('email')).first()
         if user and user.authenticate(data.get('password')):
+            session.permanent = True
             session['user_id'] = user.id
             return user.to_dict(), 201
             
