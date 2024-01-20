@@ -9,11 +9,14 @@ export function Nav() {
   return (
   <>
   <div className='spacer'></div>
+  <div className='bottom-bar'>
+  {/* <div className='player'>TODO</div> */}
   <div className='nav-bar'>
     <NavLink className='nav-link' to='/'>Feed</NavLink>
     <NavLink className='nav-link' to='/search'>Search</NavLink>
     <NavLink className='nav-link' to='/me'>My Pawds</NavLink>
     <NavLink to='/login'> <img src={pawdLogo} className="logo" alt="Pawdcasts logo" /></NavLink>
+  </div>
   </div>
   </>)
 }

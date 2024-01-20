@@ -6,10 +6,22 @@
   object-fit: contain;
   width: 50px;
 }
-.nav-bar{
+
+.bottom-bar{
+  display: flex;
+  flex-flow: column nowrap;
   position: fixed;
   bottom: 0;
   left: 0;
+  width: 100%;
+}
+
+.player{
+  padding: 20px;
+  background-color: azure;
+}
+
+.nav-bar{  
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
