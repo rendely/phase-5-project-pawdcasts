@@ -31,7 +31,7 @@ export default function Episode() {
             <h2>
                 {episode.title}
             </h2>
-            <button onClick={() => setCurrentEpisode(episode)}>Play</button>
+            <button className='play-button' onClick={() => setCurrentEpisode(episode)}>Play</button>
             <div className="description">
                 {episode.description}
             </div>

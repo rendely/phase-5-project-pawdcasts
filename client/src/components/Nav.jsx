@@ -16,13 +16,18 @@ export function Nav() {
     <>
       <div className='spacer'></div>
       <div className='bottom-bar'>
-        {currentEpisode ? <div className='player'>
-          <div className='audio'>
+        {currentEpisode ? 
+        <>
+        <div className='episode-info'>
+        <img className="podcast-image" src={currentEpisode.podcast.image_url} />
+            <span>{currentEpisode.title}</span>
+            <button onClick={() => setCurrentEpisode(null)}>Stop</button>
+            </div>      
+            
+        <div className='player'>                
             <Player currentEpisode={currentEpisode} />
-          </div>
-          <div>
-            <button onClick={() => setCurrentEpisode(null)}>Stop</button></div>
-        </div> : null}
+        </div>
+        </> : null}
         <div className='nav-bar'>
           <NavLink className='nav-link' to='/'>Feed</NavLink>
           <NavLink className='nav-link' to='/search'>Search</NavLink>

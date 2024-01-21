@@ -7,10 +7,30 @@
   width: 50px;
 }
 
+.episode-info{
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  justify-content: space-around;
+  padding: 0px;
+  font-size: 0.8em;
+}
+
+.episode-info img{
+  object-fit: contain;
+  width: 50px;
+  height: 50px;
+  margin: 10px 10px;
+  border-radius: 20%;
+}
+
 .bottom-bar{
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: space-around;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -19,24 +39,27 @@
   color: black;
 }
 
-.player button{
-  margin: 0 10px 0 0;
+.episode-info button{
+  margin-right: 10px;
   padding: 2px 5px;
 }
 
-.player .audio {
-  flex-grow: 1;
-  margin: 0 10px;
+.episode-info span{
+  margin-right: 10px;
 }
 
 .player{
   max-width: 800px;
   width: 100%;
-  padding: 20px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
-  align-items: center;
+  padding: 0px 10px 20px 10px;
+}
+
+.player .audio{
+  margin: 0 10px 0 10px;
+}
+
+.player audio{
+  width: 100%;
 }
 
 .nav-bar{  

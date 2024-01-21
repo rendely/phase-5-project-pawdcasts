@@ -34,11 +34,12 @@ export default function Player({ currentEpisode }) {
 
 
     return (
-        <>  {currentEpisode.title}
+        <>  <div className='audio'>
             <audio
                 ref={audio}
                 controls autoPlay title={currentEpisode.title}>
                 <source src={currentEpisode.source_url} type="audio/mpeg" />
             </audio>
+            </div>
         </>)
 }
