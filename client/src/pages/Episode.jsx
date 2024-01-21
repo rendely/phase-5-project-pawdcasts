@@ -1,9 +1,12 @@
-import { useEffect, useState, useRef } from "react";
+import {useContext, useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Comments from "../components/Comments";
-import './Episode.css'
+import './Episode.css';
+import { UserContext } from "../UserContext";
+
 
 export default function Episode() {
+    const { currentAudio, setCurrentAudio } = useContext(UserContext);
     const params = useParams();
     const [episode, setEpisode] = useState();
     const audio = useRef();
@@ -27,7 +30,8 @@ export default function Episode() {
             .then(r => r.json())
             .then(d => {
                 setEpisode(d);    
-                saveCurrentTime();            
+                saveCurrentTime();   
+                setCurrentAudio(d.source_url);
             });
         
         return () => {
