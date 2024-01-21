@@ -20,7 +20,7 @@ export function Nav() {
             <source src={currentAudio} type="audio/mpeg" />
           </audio></div>
           <div>
-          <button onClick={()=> setCurrentAudio(null)}>close</button></div>
+          <button onClick={()=> setCurrentAudio(null)}>Stop</button></div>
         </div> : null}
         <div className='nav-bar'>
           <NavLink className='nav-link' to='/'>Feed</NavLink>

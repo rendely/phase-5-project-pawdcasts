@@ -41,7 +41,6 @@ button:hover{
 
 .logo {
   height: 6em;
-  padding: 1.5em;
   animation: bounce 1s linear alternate-reverse infinite;
 }
 

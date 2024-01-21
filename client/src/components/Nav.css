@@ -2,7 +2,7 @@
   height: 100px;
 }
 
-.logo{
+.bottom-bar .logo{
   object-fit: contain;
   width: 50px;
 }
@@ -19,14 +19,20 @@
   color: black;
 }
 
-.audio {
-  
-  width: 70%;
+.player button{
+  margin: 0 10px 0 0;
+  padding: 2px 5px;
+}
+
+.player .audio {
+  flex-grow: 1;
+  margin: 0 10px;
 }
 
 .player{
+  max-width: 800px;
   width: 100%;
-  padding: 20px 20px 30px 30px;
+  padding: 10px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
