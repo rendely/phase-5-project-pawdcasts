@@ -36,6 +36,7 @@ export default function Player({ currentEpisode }) {
     return (
         <>  <div className='audio'>
             <audio
+                key={currentEpisode.id}
                 ref={audio}
                 controls autoPlay title={currentEpisode.title}>
                 <source src={currentEpisode.source_url} type="audio/mpeg" />
