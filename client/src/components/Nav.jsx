@@ -1,16 +1,24 @@
-import './Nav.css'
-import { NavLink } from 'react-router-dom'
+import './Nav.css';
+import {useEffect, useContext} from 'react';
+import { NavLink } from 'react-router-dom';
 import useEmoji from './useEmoji';
-import pawdLogo from '/pawdcast_logo_large.png'
+import pawdLogo from '/pawdcast_logo_large.png';
+import { UserContext } from "../UserContext";
 
 export function Nav() {
+
+  const { currentAudio, setCurrentAudio } = useContext(UserContext);
+  useEffect( () => {
+    setCurrentAudio('hi');
+  },[])
+
   if (window.innerWidth >= 425) useEmoji();
 
   return (
   <>
   <div className='spacer'></div>
   <div className='bottom-bar'>
-  {/* <div className='player'>TODO</div> */}
+  { currentAudio ? <div className='player'>{currentAudio} (x)</div> : null}
   <div className='nav-bar'>
     <NavLink className='nav-link' to='/'>Feed</NavLink>
     <NavLink className='nav-link' to='/search'>Search</NavLink>
