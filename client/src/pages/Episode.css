@@ -2,6 +2,12 @@
     padding: 20px;
 }
 
+.episode-container button{
+    margin-bottom: 20px;
+    width: 100px;
+    font-size: 1.3em;
+}
+
 .podcast-image{
     border-radius: 5px;
     margin-top: 10px;

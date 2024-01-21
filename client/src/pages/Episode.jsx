@@ -16,7 +16,6 @@ export default function Episode() {
             .then(r => r.json())
             .then(d => {
                 setEpisode(d);    
-                setCurrentEpisode(d);
             });
         
     }, []);
@@ -32,6 +31,7 @@ export default function Episode() {
             <h2>
                 {episode.title}
             </h2>
+            <button onClick={() => setCurrentEpisode(episode)}>Play</button>
             <div className="description">
                 {episode.description}
             </div>

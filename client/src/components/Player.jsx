@@ -34,7 +34,7 @@ export default function Player({ currentEpisode }) {
 
 
     return (
-        <>
+        <>  {currentEpisode.title}
             <audio
                 ref={audio}
                 controls autoPlay title={currentEpisode.title}>
