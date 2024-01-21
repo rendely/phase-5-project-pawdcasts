@@ -3,24 +3,25 @@ import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import useEmoji from './useEmoji';
 import pawdLogo from '/pawdcast_logo_large.png';
+import Player from './Player';
 import { UserContext } from "../UserContext";
 
 export function Nav() {
 
-  const { currentAudio, setCurrentAudio } = useContext(UserContext);
-
   if (window.innerWidth >= 425) useEmoji();
+
+  const { currentEpisode, setCurrentEpisode } = useContext(UserContext);
 
   return (
     <>
       <div className='spacer'></div>
       <div className='bottom-bar'>
-        {currentAudio ? <div className='player'>
-          <div className='audio'><audio controls autoPlay >
-            <source src={currentAudio} type="audio/mpeg" />
-          </audio></div>
+        {currentEpisode ? <div className='player'>
+          <div className='audio'>
+            <Player currentEpisode={currentEpisode} />
+          </div>
           <div>
-          <button onClick={()=> setCurrentAudio(null)}>Stop</button></div>
+            <button onClick={() => setCurrentEpisode(null)}>Stop</button></div>
         </div> : null}
         <div className='nav-bar'>
           <NavLink className='nav-link' to='/'>Feed</NavLink>

@@ -6,45 +6,20 @@ import { UserContext } from "../UserContext";
 
 
 export default function Episode() {
-    const { currentAudio, setCurrentAudio } = useContext(UserContext);
+    const { setCurrentEpisode } = useContext(UserContext);
     const params = useParams();
     const [episode, setEpisode] = useState();
-    const audio = useRef();
-    const timeoutIdRef = useRef(null);
 
-    function saveCurrentTime(){
-        if (audio.current) {
-            const currentTime = Math.round(audio.current.currentTime);
-            fetch (`/api/episode/${params['id']}`, {
-                method: 'PATCH',
-                headers: {'Content-type': 'application/json'},
-                body: JSON.stringify({current_time: currentTime})                
-            });
-
-        }
-        timeoutIdRef.current = setTimeout(saveCurrentTime, 10000);
-    }
 
     useEffect(() => {
         fetch(`/api/episode/${params['id']}`)
             .then(r => r.json())
             .then(d => {
                 setEpisode(d);    
-                saveCurrentTime();   
-                setCurrentAudio(d.source_url);
+                setCurrentEpisode(d);
             });
         
-        return () => {
-            if (timeoutIdRef.current) {
-                clearTimeout(timeoutIdRef.current);
-            }
-        };
-
     }, []);
-
-    useEffect(() => {
-        if (audio.current) audio.current.currentTime = episode.current_time}
-    ,[episode]);
 
     if (!episode) return <h2>Loading...</h2>
 
@@ -61,9 +36,7 @@ export default function Episode() {
                 {episode.description}
             </div>
             <div className="audio">
-                <audio ref={audio} controls autoPlay title={episode.title}>
-                    <source src={episode.source_url} type="audio/mpeg" />
-                </audio>
+               
             </div>
             <Comments episode_id={episode.id}/>
         </div>

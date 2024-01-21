@@ -6,7 +6,7 @@ export const UserContext = createContext(null);
 export const UserProvider = ({ children }) => {
 
   const [user, setUser] = useState('loading');
-  const [currentAudio, setCurrentAudio] = useState();
+  const [currentEpisode, setCurrentEpisode] = useState();
 
   useEffect(() => {
     updateUser()
@@ -29,7 +29,7 @@ export const UserProvider = ({ children }) => {
   }
 
   return (
-    <UserContext.Provider value={{ user, setUser, updateUser, logout, currentAudio, setCurrentAudio }}>
+    <UserContext.Provider value={{ user, setUser, updateUser, logout, currentEpisode, setCurrentEpisode }}>
       {children}
     </UserContext.Provider>
   );
