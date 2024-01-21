@@ -15,6 +15,7 @@ export function Nav() {
   return (
     <>
       <div className='spacer'></div>
+      { currentEpisode ? <div className='spacer'></div> : null }
       <div className='bottom-bar'>
         {currentEpisode ? 
         <>
