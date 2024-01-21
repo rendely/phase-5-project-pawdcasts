@@ -16,9 +16,11 @@ export function Nav() {
       <div className='spacer'></div>
       <div className='bottom-bar'>
         {currentAudio ? <div className='player'>
-          <audio controls autoPlay >
+          <div className='audio'><audio controls autoPlay >
             <source src={currentAudio} type="audio/mpeg" />
-          </audio>
+          </audio></div>
+          <div>
+          <button onClick={()=> setCurrentAudio(null)}>close</button></div>
         </div> : null}
         <div className='nav-bar'>
           <NavLink className='nav-link' to='/'>Feed</NavLink>

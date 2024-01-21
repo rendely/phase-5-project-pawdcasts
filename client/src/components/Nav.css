@@ -10,16 +10,27 @@
 .bottom-bar{
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+  background-color: azure;
+  color: black;
+}
+
+.audio {
+  
+  width: 70%;
 }
 
 .player{
-  padding: 20px;
-  background-color: azure;
-  color: black;
+  width: 100%;
+  padding: 20px 20px 30px 30px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .nav-bar{  
@@ -39,8 +50,7 @@
   }
 }
 
-.nav-link {
-  
+.nav-link {  
   padding: 10px 10px 24px 10px;
   text-decoration: none;
 }
