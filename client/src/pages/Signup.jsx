@@ -16,6 +16,7 @@ export default function Signup() {
   const formSchema = yup.object().shape({
     email: yup.string().required("Must enter a email").email("Must be a valid email"),
     password: yup.string().required("Must enter a password").min(3, "At least 3 characters"),
+    passwordConfirm: yup.string().oneOf([yup.ref('password')], 'Passwords must match').required('Must enter password confirmation.')
   });
 
   const formik = useFormik({
@@ -25,7 +26,7 @@ export default function Signup() {
     },
     validationSchema: formSchema,
     onSubmit: (values) => {
-      fetch("/api/login", {
+      fetch("/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -33,7 +34,6 @@ export default function Signup() {
         body: JSON.stringify(values),
       }).then(r => {
         if (r.status === 201) return r.json()
-        setErrors('Invalid login')
         throw new Error('Login failed')
       })
         .then(d => setUser(d))
@@ -59,7 +59,13 @@ export default function Signup() {
         <input name='password' placeholder='Password' type='password' onChange={formik.handleChange} value={formik.values.password} />
         <p style={{ color: "red" }}> {formik.errors.password}</p>
         </div>
-        <button type='submit'>Login</button>
+
+        <label>Confirm Password</label>
+        <div>
+        <input name='passwordConfirm' placeholder='Password' type='password' onChange={formik.handleChange} value={formik.values.passwordConfirm} />
+        <p style={{ color: "red" }}> {formik.errors.passwordConfirm}</p>
+        </div>
+        <button type='submit'>Signup</button>
         <p style={{ color: 'red' }}>{errors}</p>
         Already have an account? <NavLink to='/login'>Login</NavLink>
       </form>
