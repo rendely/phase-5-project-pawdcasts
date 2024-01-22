@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { NavLink } from 'react-router-dom';
 
 
-export default function Login() {
+export default function Signup() {
 
   const {user, logout, setUser} = useContext(UserContext);
 
@@ -47,7 +47,7 @@ export default function Login() {
       <h1>Pawd🐾casts</h1>
       { user ? (<button onClick={() => logout()}>Logout</button>) : 
       <form onSubmit={formik.handleSubmit}>
-        <h2>Login</h2>
+        <h2>Signup</h2>
         <label>Email</label>        
         <div>
         <input name='email' placeholder='email' onChange={formik.handleChange} value={formik.values.email} />
@@ -61,9 +61,8 @@ export default function Login() {
         </div>
         <button type='submit'>Login</button>
         <p style={{ color: 'red' }}>{errors}</p>
-        Don't have an account? <NavLink to='/signup'>Sign up</NavLink>
+        Already have an account? <NavLink to='/login'>Login</NavLink>
       </form>
-      
     }
     </>
   )
