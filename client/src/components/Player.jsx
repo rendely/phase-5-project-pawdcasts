@@ -16,8 +16,34 @@ export default function Player({ currentEpisode }) {
     }, [])
 
     useEffect(() => {
-        if (audio.current) audio.current.currentTime = currentEpisode.current_time}
-    ,[currentEpisode]);
+        if (audio.current) audio.current.currentTime = currentEpisode.current_time
+
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: currentEpisode.title,
+            artist: currentEpisode.podcast.title,
+            artwork: [
+              {
+                src: currentEpisode.podcast.image_url,
+                sizes: "128x128",
+                type: "image/png",
+              }
+            ],
+          });
+
+          navigator.mediaSession.setActionHandler("seekbackward", () => {
+            audio.current.currentTime -= 30;
+          });
+          navigator.mediaSession.setActionHandler("seekforward", () => {
+            audio.current.currentTime += 30;
+          });
+          navigator.mediaSession.setActionHandler("nexttrack", () => {
+            audio.current.currentTime += 30;
+          });
+          navigator.mediaSession.setActionHandler("previoustrack", () => {
+            audio.current.currentTime -= 30;
+          });
+
+        },[currentEpisode]);
 
     function saveCurrentTime() {
         if (audio.current) {
