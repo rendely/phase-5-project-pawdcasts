@@ -32,13 +32,11 @@ export default function Episode() {
                 {episode.title}
             </h2>
             <button className='play-button' onClick={() => setCurrentEpisode(episode)}>Play</button>
+            <Comments episode_id={episode.id}/>
             <div className="description">
                 {episode.description}
             </div>
-            <div className="audio">
-               
-            </div>
-            <Comments episode_id={episode.id}/>
+            
         </div>
     )
 }
