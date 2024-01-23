@@ -45,7 +45,7 @@ export default function Comments({ episode_id }) {
                 <div className='comment-author'>Comment as {user.name}:</div>
                 <form onSubmit={handleSubmit}>
                     <div className='comment-row'>
-                        <input autoFocus onChange={(e) => setText(e.target.value)} type='text' value={text} />
+                        <input onChange={(e) => setText(e.target.value)} type='text' value={text} />
                         <button type='submit' >Comment</button>
                     </div>
                 </form>
