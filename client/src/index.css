@@ -1,11 +1,11 @@
 body {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: system-ui, Avenir, Arial, sans-serif;
+  line-height: 1.2;
   font-weight: 400;
   margin: auto;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #7fc5db;
+  background-color: #7f95db;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
