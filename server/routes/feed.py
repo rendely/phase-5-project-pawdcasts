@@ -15,8 +15,6 @@ class Feed(Resource):
         updated_time = round(dt.now().timestamp())
 
         for podcast in followed_podcasts:
-            print(f'{podcast.last_updated_time}=')
-            print(f'{updated_time - cache_duration_secs}=')
             if podcast.feed_url is not None and podcast.last_updated_time < updated_time - cache_duration_secs:
                 episodes += get_feed_episodes(podcast.feed_url, podcast)
             else:
