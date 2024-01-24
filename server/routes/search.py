@@ -39,6 +39,7 @@ class Search(Resource):
                 feed_url=p['feedUrl'],
                 itunes_id=p['itunes_id'],
                 image_url=p['image_url'],
+                last_updated_time=0
             )
             for p in results if p['itunes_id'] not in podcasts_index
         ]
