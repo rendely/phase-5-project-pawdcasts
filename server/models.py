@@ -55,7 +55,7 @@ class Podcast(db.Model, SerializerMixin):
     feed_url = db.Column(db.String)
     image_url = db.Column(db.String)
     episodes = db.relationship('Episode', back_populates='podcast')
-    
+    last_updated_time = db.Column(db.Integer)
 
     def __repr__(self):
         return f'<Podcast {self.title=}>'

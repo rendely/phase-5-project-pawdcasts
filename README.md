@@ -41,3 +41,10 @@ honcho start -f Procfile.dev
 ```sh
 git push heroku main:master
 ```
+
+## Updating the database
+
+1. Update the models.py file
+2. `cd server`
+3. `flask db migrate -m "change description"`
+4. `flask db upgrade head`
