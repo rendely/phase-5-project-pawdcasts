@@ -16,3 +16,11 @@
 .description{
     text-align: left;
 }
+
+a{
+ color: rgb(197, 197, 180);
+}
+
+li{
+    margin-bottom: 10px;
+}

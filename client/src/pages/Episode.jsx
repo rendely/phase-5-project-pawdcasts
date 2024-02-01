@@ -33,10 +33,7 @@ export default function Episode() {
             </h2>
             <button className='play-button' onClick={() => setCurrentEpisode(episode)}>Play</button>
             <Comments episode_id={episode.id}/>
-            <div className="description">
-                {episode.description}
-            </div>
-            
+            <div className="description" dangerouslySetInnerHTML={{__html: episode.description}}></div>            
         </div>
     )
 }
