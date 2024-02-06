@@ -1,10 +1,9 @@
 from datetime import datetime as dt
-import requests
-from flask import request, session
+from flask import session
 from flask_restful import Resource
-from ..config import api, db
-from ..models import User, Podcast, Episode, follows
-from ..rss_helper import get_feed_episodes
+from server.config import api, db
+from server.models import User
+from server.rss_helper import get_feed_episodes
 
 cache_duration_secs = 600
 
