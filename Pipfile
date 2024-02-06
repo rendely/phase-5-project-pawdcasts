@@ -17,6 +17,7 @@ sqlalchemy-serializer = "*"
 flask-cors = "*"
 requests = "*"
 lxml = "*"
+openai = "*"
 
 [dev-packages]
 

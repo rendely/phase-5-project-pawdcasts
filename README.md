@@ -21,8 +21,10 @@ Listen to episodes and discuss them via comments:
 ## Running locally
 
 Define a .env file in the root directory with these definitions:
+
 - DATABASE_URI
 - SECRET_KEY
+- OPENAI_API_KEY
 
 
 ```sh
