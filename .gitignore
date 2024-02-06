@@ -66,3 +66,6 @@ logs/
 *.seed
 
 test*
+
+audio.mp3
+audio/
