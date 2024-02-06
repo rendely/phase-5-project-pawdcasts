@@ -7,7 +7,6 @@ from datetime import datetime
 
 def get_feed_episodes(url, podcast):
     r = requests.get(url)
-    print(url)
     root = ET.fromstring(r.text)
     items = root.findall('.//item')
     namespace = {'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd', 'content': 'http://purl.org/rss/1.0/modules/content/'}
@@ -37,7 +36,7 @@ def get_feed_episodes(url, podcast):
             final_description = itunes_summary
 
         guid = item.find('guid').text
-
+        
         if guid not in existing_guids:
             episodes.append(Episode(
                 title=title,
@@ -57,7 +56,7 @@ def get_feed_episodes(url, podcast):
     try:
         db.session.add_all(episodes)
         db.session.commit()
-        return episodes + existing_episodes
+        return episodes
     except IntegrityError as e: 
         print(e)
         return []

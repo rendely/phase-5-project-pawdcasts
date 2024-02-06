@@ -20,6 +20,7 @@ class Feed(Resource):
                 episodes.extend(podcast.episodes)
             podcast.last_updated_time = updated_time
 
+        # commit change of updating last updated time
         db.session.add_all(followed_podcasts)
         db.session.commit()
 
