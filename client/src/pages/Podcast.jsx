@@ -9,7 +9,7 @@ import { UserContext } from "../UserContext";
 export default function Podcast() {
   const params = useParams();
   const [podcast, setPodcast] = useState({title: 'Loading...'});
-  const [episodes, setEpisodes] = useState([]);
+  const [episodes, setEpisodes] = useState();
   const {user, updateUser} = useContext(UserContext);
 
   const followedPodcasts = user.followed_podcasts;
@@ -31,6 +31,8 @@ export default function Podcast() {
      } )
 
   },[]);
+
+  if (!episodes) return <h2>Loading...</h2>
 
   return (
     <>
