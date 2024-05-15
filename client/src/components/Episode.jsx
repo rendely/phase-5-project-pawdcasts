@@ -27,7 +27,7 @@ export default function Episode({ episode }) {
 
 
       </div>
-      <div className="episode-description" dangerouslySetInnerHTML={{__html: episode.description.split(' ').slice(0,50).join(' ')}}></div>
+      
     </div>
   )
 } 
