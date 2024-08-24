@@ -6,7 +6,7 @@ from server.config import api, db
 from server.models import User
 from server.rss_helper import get_feed_episodes
 
-cache_duration_secs = 10
+cache_duration_secs = 600
 
 class Feed(Resource):
     def get(self):
